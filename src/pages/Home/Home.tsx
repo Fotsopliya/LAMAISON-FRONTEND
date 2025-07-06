@@ -3,6 +3,7 @@ import SearchBar from './SearchBar'
 import HeroSection from './HeroSection'
 import AnnoncesPreview from './AnnoncesPreview'
 
+
 const Home = () => {
   return (
     <div>

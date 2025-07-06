@@ -8,15 +8,15 @@ type PageProps = {
 
 const Layout = ({ children }: PageProps) => {
     return (
-        <div className=''>
-            <div className=''>
-                <Navbar />
-            </div>
-            <main className='flex-grow'>
+        <>
+            
+                <Navbar/>
+            
+            <main className=''>
                 {children}
             </main>
            <div className="fixed bottom-0">footer</div>
-        </div>
+        </>
     )
 }
 
