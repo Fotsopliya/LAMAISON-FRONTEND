@@ -4,7 +4,7 @@ import HeroSection from './HeroSection'
 import AnnoncesPreview from './AnnoncesPreview'
 
 
-const Home = () => {
+const Home:React.FC = () => {
   return (
     <div>
       <HeroSection/>
