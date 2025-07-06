@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaSearch } from 'react-icons/fa'
 
-const SearchBar = () => {
+const SearchBar: React.FC = () => {
     return (
         <form className='flex items-center flex-grow bg-gray-100 rounded-full px-4 py-2 max-w-md'>
             <input 
