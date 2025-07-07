@@ -10,9 +10,9 @@ const Navbar: React.FC = () => {
                     <nav className='space-x-4 text-sm hidden md:block text-white'>
                         <a href="/acceuil">Acceuil</a>
                         <a href="/annonces">Annonces</a>
-                        <a href="#">À propos </a>
-                        <a href="#">Contact</a>
-                        <a href="/inscription">Connexion</a>
+                        <a href="/à propos">À propos </a>
+                        <a href="/contact">Contact</a>
+                        <a href="/connexion" >Connexion</a>
                     </nav>
                  </div>
              </div>
