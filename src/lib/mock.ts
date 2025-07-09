@@ -18,6 +18,7 @@ export const AnnoncesMock = [
     ville: 'Yaoundé',
     prix: 45000,
     image: m4,
+    type: 'Appartement',
     date: "2023-06-01",
   },
   {
