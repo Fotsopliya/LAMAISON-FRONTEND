@@ -4,8 +4,8 @@ import AnnonceCard from '../../components/AnnonceCard'
 
 const Annonces: React.FC = () => {
     return (
-        <section className="py-8 px-4">
-            <h2 className="text-2xl font-semibold mb-6 text-center">Annonces récentes</h2>
+        <section className="py-8 px-4 mt-14">
+            <h2 className="text-2xl font-semibold mb-6 text-center">Toutes nos annonces</h2>
             <div className="grid gap-6 md:grid-cols-3">
                 {AnnoncesMock.map((a) => (
                   <AnnonceCard

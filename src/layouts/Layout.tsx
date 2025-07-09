@@ -1,5 +1,6 @@
 import React, { type ReactNode } from 'react'
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 
 type PageProps = {
     children?: ReactNode
@@ -9,13 +10,13 @@ type PageProps = {
 const Layout = ({ children }: PageProps) => {
     return (
         <>
-            
-                <Navbar/>
-            
-            <main className=''>
+
+            <Navbar />
+
+            <main className='flex-grow'>
                 {children}
             </main>
-           <div className="fixed bottom-0">footer</div>
+            <Footer/>
         </>
     )
 }
