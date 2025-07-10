@@ -3,11 +3,11 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
 type PageProps = {
-    children?: ReactNode
+    children: ReactNode
 
 }
 
-const Layout = ({ children }: PageProps) => {
+const Layout: React.FC<PageProps> = ({ children }: PageProps) => {
     return (
         <>
 

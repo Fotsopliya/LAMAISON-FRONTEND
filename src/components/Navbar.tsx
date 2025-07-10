@@ -1,6 +1,6 @@
 import React from 'react'
 import logo from '../assets/logo.jpg'
-import { FaUser, FaUserCircle } from 'react-icons/fa'
+import { FaUserCircle } from 'react-icons/fa'
 
 const Navbar: React.FC = () => {
     return (
