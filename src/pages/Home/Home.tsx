@@ -16,7 +16,7 @@ const Home: React.FC = () => {
     { value: 'maison', label: 'Maison' },
     { value: 'terrain', label: 'Terrain' }
   ]
- const prixMax = [
+ const prix = [
     { value: '10000000', label: 'Jusqu’à 10M FCFA' },
     { value: '25000000', label: 'Jusqu’à 25M FCFA' },
     { value: '50000000', label: 'Jusqu’à 50M FCFA' }
@@ -33,19 +33,19 @@ const Home: React.FC = () => {
           options={villes}
           value = {selectedvilles}
           onChange={setSelectedvilles}
-          placeholder='filtrer par ville'
+          placeholder='Ville'
       />
       <GSelect
         options={types}
         value={selectedtypes}
         onChange={setSelectedtypes}
-        placeholder="filtrer par type de bien"
+        placeholder="Bien"
         />
         <GSelect
-        options={prixMax}
+        options={prix}
         value={selectedprix}
         onChange={setSelectedprix}
-        placeholder="filtrer par prix max"
+        placeholder="Prix"
       
       />
       </div>
