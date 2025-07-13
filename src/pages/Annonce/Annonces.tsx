@@ -13,7 +13,7 @@ const Annonces: React.FC = () => {
                         titre={a.titre}
                         ville={a.ville}
                         prix={a.prix}
-                        image={a.image}
+                        image={a.images[0]}
                     /> 
                 ))}
             </div>
