@@ -24,6 +24,7 @@ const Home: React.FC = () => {
   const [selectedvilles, setSelectedvilles] = useState('');
   const [selectedtypes, setSelectedtypes] = useState('')
   const [selectedprix, setSelectedprix] = useState('')
+  
   return (
     <div>
       <HeroSection />
