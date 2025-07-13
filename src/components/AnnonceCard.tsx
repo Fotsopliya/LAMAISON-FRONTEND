@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
+
 type Props = {
     id: number;
     titre: string;
@@ -27,7 +29,20 @@ const AnnonceCard: React.FC<Props> = ({ id, titre, ville, prix, image }: Props) 
                 </div>
 
                 <div className='h-full w-[25%] flex items-end justify-center'>
-                    <a href={`/annonce/${id}`} className="bg-green-600 text-white p-2 rounded-[10px] hover:bg-green-700">Voir plus</a>
+                    {/* <a href={`/annonce/${id}`} className="bg-green-600 text-white p-2 rounded-[10px] hover:bg-green-700">Voir plus</a> */}
+
+                    {/* {/* <button
+                        onClick={() => window.location.href = `/annonce/${id}`}
+                        className="bg-green-600 text-white p-2 rounded-[10px] hover:bg-green-700"
+                    >
+                        Voir plus
+                    </button> */}
+                    <Link
+                        to={`/annonce/${id}`}
+                        className="bg-green-600 text-white p-2 rounded-[10px] hover:bg-green-700"
+                    >
+                        Voir plus
+                    </Link>
                 </div>
             </div >
         </div >

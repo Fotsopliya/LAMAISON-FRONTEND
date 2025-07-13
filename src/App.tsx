@@ -8,6 +8,10 @@ import Inscription from './pages/Auth/Inscription';
 import Connexion from './pages/Auth/Connexion';
 import APropos from './pages/About/APropos';
 import Contact from './pages/Contact/Contact';
+import CGU from './pages/CGU/CGU';
+import MentionsLegales from './pages/LegalMetion/MentionsLegales';
+import Confidentialite from './pages/Confidentiality/Confidentiality';
+
 
 function App() {
 
@@ -22,6 +26,9 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/connexion" element={<Connexion />} />
         <Route path="/inscription" element={<Inscription />} />
+        <Route path="/cgu" element={<CGU />} />
+        <Route path="/mentions-legales" element={<MentionsLegales />} />
+        <Route path="/confidentialite" element={<Confidentialite />} />
       </Routes>
     </Layout>
 
