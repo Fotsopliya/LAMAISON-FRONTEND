@@ -33,13 +33,13 @@ const AnnonceCard: React.FC<Props> = ({ id, titre, ville, prix, image }: Props) 
 
                     {/* {/* <button
                         onClick={() => window.location.href = `/annonce/${id}`}
-                        className="bg-green-600 text-white p-2 rounded-[10px] hover:bg-green-700"
+                        className="bg-green-600 text-white p-2 rounded-[10px] hover:bg-green-700 text-sm md:text-base whitespace-nowrap"
                     >
                         Voir plus
                     </button> */}
                     <Link
                         to={`/annonce/${id}`}
-                        className="bg-green-600 text-white p-2 rounded-[10px] hover:bg-green-700"
+                        className="bg-green-600 text-white px-3 py-1 text-xs sm:text-sm md:text-base rounded-[10px] hover:bg-green-700 whitespace-nowrap"
                     >
                         Voir plus
                     </Link>
