@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination } from 'swiper/modules'
 
 
+
 const AnnonceDetail: React.FC = () => {
   const { id } = useParams()
   const a = AnnoncesMock.find((annonce) => annonce.id === Number(id))
@@ -64,7 +65,7 @@ export default AnnonceDetail
 
 //     // if(!a){
 //     //     return (
-//     //         <div className="bg-slate-300">                
+//     //         <div className="bg-slate-300">
 //     //             <h1 className='text-center flex justify-center text-black'>annonce introuvable</h1>
 //     //         </div>
 //     //     )

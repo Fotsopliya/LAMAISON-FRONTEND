@@ -15,7 +15,7 @@ const AnnoncesPreview: React.FC = () => {
             titre={a.titre}
             ville={a.ville}
             prix={a.prix}
-            image={a.images[0]} 
+            image={a.images[0]}
           />
         ))}
       </div>
