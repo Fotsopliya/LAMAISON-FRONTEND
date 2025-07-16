@@ -1,5 +1,5 @@
 import React from 'react'
-import {AnnoncesMock} from '../../lib/mock'
+import { AnnoncesMock } from '../../lib/mock'
 import AnnonceCard from '../../components/AnnonceCard'
 
 const Annonces: React.FC = () => {
@@ -8,13 +8,13 @@ const Annonces: React.FC = () => {
             <h2 className="text-2xl font-semibold mb-6 text-center">Toutes nos annonces</h2>
             <div className="grid gap-6 md:grid-cols-3">
                 {AnnoncesMock.map((a) => (
-                  <AnnonceCard
+                    <AnnonceCard
                         id={a.id}
                         titre={a.titre}
                         ville={a.ville}
                         prix={a.prix}
                         image={a.images[0]}
-                    /> 
+                    />
                 ))}
             </div>
         </section>
