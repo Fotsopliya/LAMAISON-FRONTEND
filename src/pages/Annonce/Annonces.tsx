@@ -9,11 +9,15 @@ const Annonces: React.FC = () => {
             <div className="grid gap-6 md:grid-cols-3">
                 {AnnoncesMock.map((a) => (
                     <AnnonceCard
+                        key={a.id}
                         id={a.id}
                         titre={a.titre}
                         ville={a.ville}
                         prix={a.prix}
-                        image={a.images[0]}
+                        images={a.images}
+                        chambres={a.chambres}
+                        douches={a.douches}
+                        surface={a.surface}
                     />
                 ))}
             </div>
