@@ -5,6 +5,7 @@ import AnnoncesPreview from './AnnoncesPreview'
 
 const Home: React.FC = () => {
   return (
+    
     <div className="flex flex-col gap-6">
       {/* Section d'en-tête avec Hero */}
       <HeroSection />

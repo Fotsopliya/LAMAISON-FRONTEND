@@ -20,8 +20,11 @@ const SearchBar: React.FC = () => {
       piscine: false,   // Non cochée par défaut
       terrasse: false,  // Non cochée par défaut
       jardin: false,    // Non cochée par défaut
-      cheminée: false   // Non cochée par défaut
+      cheminée: false, // Non cochée par défaut
+      parking: false,
+      climatisation:false
     }
+        
   });
 
   // Options pour le menu déroulant "Projet"
@@ -52,7 +55,7 @@ const SearchBar: React.FC = () => {
       query: searchQuery,
       filters
     });
-    // Ici tu pourras ajouter ton appel API plus tard
+    // Ici on pourra ajouter ton appel API plus tard
   };
 
   return (
