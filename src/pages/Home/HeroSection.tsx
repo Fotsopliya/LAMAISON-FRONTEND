@@ -11,9 +11,11 @@ import { AnnoncesMock } from '../../lib/mock'
 import { Link } from 'react-router-dom'
 // Import de l'image statique qui sera affichée sur la première slide
 import heroImage from '../../assets/img/hero.jpg'
+import { useTranslation } from 'react-i18next'
 
 
 const HeroSection: React.FC = () => {
+  const {t}= useTranslation();
   return (
     // Conteneur principal du Hero, relatif pour positionner les enfants absolus
     <div className="relative h-[500px] w-full overflow-hidden">
@@ -59,10 +61,10 @@ const HeroSection: React.FC = () => {
             {/* Contenu texte centré verticalement et horizontalement */}
             <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center text-white px-4">
               <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                Trouvez le bien immobilier idéal
+                {t('heroSection.title')}
               </h1>
               <p className="text-lg md:text-xl mb-6">
-                Avec LAMAISON, explorez des milliers d’annonces en un clic.
+               {t('heroSection.desc')}
               </p>
             </div>
           </div>
