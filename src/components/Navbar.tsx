@@ -17,8 +17,9 @@ const Navbar: React.FC = () => {
         <a href="/" title="Retour à la page d'accueil">
           <img className="h-10 w-auto" src={logo} alt="logo" />
         </a>
-        <div className= "flex gap-4">
-          <LanguageSwitcher />
+        <div className="flex md:gap-4 items-center gap-4 ">
+            <LanguageSwitcher />
+          
           {/* Menu desktop */}
           <nav className="hidden md:flex space-x-6 text-sm items-center">
             <a href="/accueil">Accueil</a>
@@ -29,24 +30,29 @@ const Navbar: React.FC = () => {
               <FaUserCircle />
             </a>
           </nav>
+        
 
-          {/* Icône burger visible uniquement sur mobile (md:hidden) */}
-          <div className="md:hidden text-2xl" onClick={toggleMenu}>
+        {/* Icône burger visible uniquement sur mobile (md:hidden) */}
+      
+          <button className="md:hidden text-2xl" onClick={toggleMenu}>
             {menuOpen ? <FaTimes /> : <FaBars />}
-          </div>
+          </button>
         </div>
-        {/* Menu mobile déroulant si menuOpen est true */}
-        {menuOpen && (
-          <div className="md:hidden px-6 pb-4 space-y-3 bg-green-600 text-sm">
-            <a href="/accueil" className="block">Accueil</a>
-            <a href="/annonces" className="block">Annonces</a>
-            <a href="/à propos" className="block">À propos</a>
-            <a href="/contact" className="block">Contact</a>
-            <a href="/connexion" className="block">Connexion
-            </a>
-          </div>
-        )}
       </div>
+      
+
+      {menuOpen && (
+        <div className="md:hidden px-6 pb-4 pt-2 space-y-3 bg-green-600 text-sm">
+          <a href="/accueil" className="block">Accueil</a>
+          <a href="/annonces" className="block">Annonces</a>
+          <a href="/à propos" className="block">À propos</a>
+          <a href="/contact" className="block">Contact</a>
+          <a href="/connexion" className="block">Connexion
+          </a>
+        </div>
+
+      )}
+
     </header>
   )
 }

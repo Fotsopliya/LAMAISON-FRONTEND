@@ -22,9 +22,11 @@ const SearchBar: React.FC = () => {
       jardin: false,    // Non cochée par défaut
       cheminée: false, // Non cochée par défaut
       parking: false,
-      climatisation:false
+      climatisation: false,
+      security: false,
+      guard: false
     }
-        
+
   });
 
   // Options pour le menu déroulant "Projet"
@@ -38,7 +40,8 @@ const SearchBar: React.FC = () => {
     { value: 'maison', label: 'Maison' },
     { value: 'appartement', label: 'Appartement' },
     { value: 'terrain', label: 'Terrain' },
-     { value: 'chambre', label: 'Chambre' }
+    { value: 'chambre', label: 'Chambre' },
+    { value: 'meublé', label: 'Meublé' }
   ];
 
   // Options pour le menu déroulant "Budget"
@@ -107,7 +110,7 @@ const SearchBar: React.FC = () => {
               onChange={(e) => setFilters({ ...filters, budget: e.target.value })}
               className="p-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
             >
- 
+
               <option value="" disabled>Budget</option>
               {budgets.map(opt => (
                 <option key={opt.value} value={opt.value}>
@@ -209,8 +212,8 @@ const SearchBar: React.FC = () => {
                     key={item}
                     onClick={() => setFilters({ ...filters, chambres: item.toString() })}
                     className={`px-3 py-1 rounded-full transition ${filters.chambres === item.toString()
-                        ? 'bg-green-600 text-white'
-                        : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
+                      ? 'bg-green-600 text-white'
+                      : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
                       }`}
                   >
                     {item}
@@ -223,20 +226,32 @@ const SearchBar: React.FC = () => {
             <div>
               <h4 className="font-medium text-gray-700 mb-2">Options</h4>
               <div className="space-y-2">
-                {Object.entries(filters.options).map(([key, value]) => (
-                  <label key={key} className="flex items-center gap-2 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      checked={value}
-                      onChange={(e) => setFilters({
-                        ...filters,
-                        options: { ...filters.options, [key]: e.target.checked }
-                      })}
-                      className="w-4 h-4 text-green-600 rounded border-gray-300 focus:ring-green-500"
-                    />
-                    <span className="capitalize">{key}</span>
-                  </label>
-                ))}
+                {Object.entries(filters.options).map(([key, value]) => {
+                  const space: Record<string, string> = {
+                    piscine: "piscine",
+                    terrasse: "terrasse",
+                    jardin: "jardin",
+                    cheminée: "cheminée",
+                    parking: "parking",
+                    climatisation: "climatisation",
+                    security: "système de vidéo surveillance",
+                    guard: "société de gardiennage"
+                  }
+                  return (
+                    < label key={key} className="flex items-center gap-2 cursor-pointer" >
+                      <input
+                        type="checkbox"
+                        checked={value}
+                        onChange={(e) => setFilters({
+                          ...filters,
+                          options: { ...filters.options, [key]: e.target.checked }
+                        })}
+                        className="w-4 h-4 text-green-600 rounded border-gray-300 focus:ring-green-500"
+                      />
+                      <span className="">{space[key] || key}</span>
+                    </label>
+                  )
+                })}
               </div>
             </div>
           </div>
@@ -260,8 +275,9 @@ const SearchBar: React.FC = () => {
             </button>
           </div>
         </div>
-      )}
-    </div>
+      )
+      }
+    </div >
   );
 };
 

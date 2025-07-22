@@ -1,11 +1,17 @@
 import React from 'react'
 import { AnnoncesMock } from '../../lib/mock'
 import AnnonceCard from '../../components/AnnonceCard'
+import SearchBar from '../../components/SearchBar' 
 
 const Annonces: React.FC = () => {
     return (
         <section className="py-8 px-4 mt-14">
             <h2 className="text-2xl font-semibold mb-6 text-center">Toutes nos annonces</h2>
+
+            <div className="px-4 py-8 md:px-0">
+                <SearchBar />
+            </div>
+
             <div className="grid gap-6 md:grid-cols-3">
                 {AnnoncesMock.map((a) => (
                     <AnnonceCard
