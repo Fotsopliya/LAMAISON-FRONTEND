@@ -1,26 +1,33 @@
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import { FaArrowDown } from 'react-icons/fa';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
 const LanguageSwitcher: React.FC= () => {
     const {i18n}= useTranslation()
     const languages = [
-        {code: "fr", label: "fr", emoji: "FR"},
-        {code: "en", label: "en", emoji: "EN"}
+        {code: "fr", label: "FR", emoji: "FR"},
+        {code: "en", label: "EN", emoji: "EN"}
     ]
     const [open, setOpen]=useState(false)
+    const navigate = useNavigate()
+    const location = useLocation()
     const changeLang = (code: string) => {
        i18n.changeLanguage(code)
-       
-       setOpen(false)
+       const currentPath = location.pathname
+       const newPath = `/${code}${currentPath.startsWith('/en') || 
+       currentPath.startsWith('/fr')
+       ? currentPath.substring(3)
+        : currentPath}`
+       navigate(newPath)
     }
     const currentLang = languages.find((l) => l.code === i18n.language)
     return (
         <div className="relative inline-block text-left">
             <button
                 onClick={() => setOpen(!open)}
-                className="flex items-center gap-2 px-3 py-1 text-sm border border-gray-300 rounded hover:bg-gray-100 hover:text-black"
+                className="flex items-center gap-2 px-3 py-1 text-sm border-none hover:bg-gray-100 hover:text-black"
             >
                 {currentLang?.code.toUpperCase()}
                 <FaArrowDown size={16} />
