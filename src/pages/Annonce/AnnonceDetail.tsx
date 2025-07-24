@@ -5,9 +5,10 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination } from 'swiper/modules'
 import OwnerCard from '../../components/OwnerCard'
 import RdvModal from '../../components/RdvModal'
+import { FaBed, FaRulerCombined, FaShower } from 'react-icons/fa'
 
 const AnnonceDetail: React.FC = () => {
-  
+
   // Récupère le paramètre dynamique 'id' depuis l'URL grâce au hook useParams de react-router-dom
   const { id } = useParams()
 
@@ -69,10 +70,23 @@ const AnnonceDetail: React.FC = () => {
 
         {/* Caractéristiques techniques */}
         <div className="mt-4 text-sm text-gray-700 grid grid-cols-2 sm:grid-cols-3 gap-y-2">
-          <p><span className="font-semibold">Type :</span> {a.type}</p>
-          <p><span className="font-semibold">Surface :</span> {a.surface} m²</p>
-          <p><span className="font-semibold">Chambres :</span> {a.chambres}</p>
-          <p><span className="font-semibold">Douches :</span> {a.douches}</p>
+          <p>< span className="font-semibold">Type :</span> {a.type}</p>
+
+          <div className="inline-flex items center gap-2">
+            <span><FaRulerCombined /></span>
+            <p>Surface : {a.surface}m²</p>
+          </div>
+
+          <div className="inline-flex items-center gap-2">
+            <span><FaBed /></span>
+            <p>Chambres : {a.chambres}</p>
+          </div>
+
+          <div className="inline-flex items-center gap-2">
+            <span><FaShower /></span>
+            <p>Douches : {a.douches}</p>
+          </div>
+
           <p><span className="font-semibold">Publié le :</span> {a.date}</p>
         </div>
 
@@ -111,7 +125,7 @@ const AnnonceDetail: React.FC = () => {
         proprietaireTel={proprietaire.tel}
       />
     </div>
-    
+
   )
 }
 
