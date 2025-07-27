@@ -72,7 +72,8 @@
         "heureRdv": "Time of appointment",
         "heure": "Time",
         "msg": "Message (optional)",
-        "envy": "Send request"
+        "envy": "Send request",
+        "sejour":"stay"
     },
     "apropos": {
         "title": "About LAMAISON",
@@ -149,5 +150,11 @@
     },
     "logo": {
         "title": "back to homepage"
+    },
+     "dateseJourPicker":{
+        "duree":"📆 Choose the date of stay",
+        "arrivee":"Arrival date",
+        "depart":"Departure date",
+         "selection":"Select a date"
     }
 }
