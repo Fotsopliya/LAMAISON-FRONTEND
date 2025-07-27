@@ -1,3 +1,4 @@
+import { t } from 'i18next'
 import React from 'react'
 
 interface OwnerCardProps {
@@ -61,7 +62,7 @@ const OwnerCard: React.FC<OwnerCardProps> = ({
             onClick={onPrendre}
             className="bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-lg text-sm shadow-sm transition duration-200"
           >
-            📅 Prendre RDV
+            {t('ownerCard.RDV')}
           </button>
         </div>
       )}

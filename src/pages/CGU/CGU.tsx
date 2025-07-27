@@ -1,23 +1,24 @@
+import { t } from 'i18next'
 import React from 'react'
 
 const CGU: React.FC= () => {
   return (
     <div className="max-w-4xl mx-auto px-4 pt-24 pb-8">
-      <h1 className="text-3xl font-bold mb-4">Conditions Générales d’Utilisation</h1>
+      <h1 className="text-3xl font-bold mb-4"> {t('CGU.title')}</h1>
       <p className="mb-4">
-        Bienvenue sur LAMAISON. En utilisant ce site, vous acceptez les présentes conditions générales d'utilisation.
+         {t('CGU.intro')}
       </p>
-      <h2 className="text-xl font-semibold mt-6 mb-2">1. Objet du site</h2>
+      <h2 className="text-xl font-semibold mt-6 mb-2"> {t('CGU.body1')}</h2>
       <p className="mb-4">
-        LAMAISON est une plateforme de mise en relation entre particuliers et professionnels du secteur immobilier.
+         {t('CGU.body2')}
       </p>
-      <h2 className="text-xl font-semibold mt-6 mb-2">2. Utilisation du service</h2>
+      <h2 className="text-xl font-semibold mt-6 mb-2"> {t('CGU.body3')}</h2>
       <p className="mb-4">
-        Toute utilisation abusive ou frauduleuse du site pourra entraîner une suspension de compte.
+         {t('CGU.body4')}
       </p>
-      <h2 className="text-xl font-semibold mt-6 mb-2">3. Propriété intellectuelle</h2>
+      <h2 className="text-xl font-semibold mt-6 mb-2"> {t('CGU.body5')}</h2>
       <p className="mb-4">
-        Tous les contenus présents sur le site sont la propriété de LAMAISON et ne peuvent être reproduits sans autorisation.
+        {t('CGU.body6')}
       </p>
     </div>
   )

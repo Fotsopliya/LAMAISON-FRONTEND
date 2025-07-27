@@ -6,6 +6,7 @@ import { Navigation, Pagination } from 'swiper/modules'
 import OwnerCard from '../../components/OwnerCard'
 import RdvModal from '../../components/RdvModal'
 import { FaBed, FaRulerCombined, FaShower } from 'react-icons/fa'
+import { t } from 'i18next'
 
 const AnnonceDetail: React.FC = () => {
 
@@ -74,20 +75,20 @@ const AnnonceDetail: React.FC = () => {
 
           <div className="inline-flex items center gap-2">
             <span><FaRulerCombined /></span>
-            <p>Surface : {a.surface}m²</p>
+            <p><span className="font-semibold"> {t('annonceDetail.surf')} : </span> {a.surface}m²</p>
           </div>
 
           <div className="inline-flex items-center gap-2">
             <span><FaBed /></span>
-            <p>Chambres : {a.chambres}</p>
+            <p><span className="font-semibold">{t('searchbar.chambre')} : </span> {a.chambres}</p>
           </div>
 
           <div className="inline-flex items-center gap-2">
             <span><FaShower /></span>
-            <p>Douches : {a.douches}</p>
+            <p><span className="font-semibold">{t('annonceDetail.douches')} : </span>{a.douches}</p>
           </div>
 
-          <p><span className="font-semibold">Publié le :</span> {a.date}</p>
+          <p><span className="font-semibold">{t('annonceDetail.pub')} :</span> {a.date}</p>
         </div>
 
         <div className="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -95,9 +96,9 @@ const AnnonceDetail: React.FC = () => {
           {/* Aperçu */}
           <div className="lg:col-span-3">
             <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
-              <h3 className="text-lg font-semibold text-gray-800 mb-3">Aperçu</h3>
+              <h3 className="text-lg font-semibold text-gray-800 mb-3">{t('annonceDetail.aper')} </h3>
               <p className="text-sm text-gray-700 leading-relaxed">
-                Dans une barrière sécurisée. Caractéristiques : cuisine, douche, compteur prépayé, chambre. <br />
+                 {a.description}
                 <span className="block mt-2 font-medium text-green-700">Prix : {a?.prix?.toLocaleString()} FCFA /mois - 8 mois de loyer
                 </span>
               </p>

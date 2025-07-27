@@ -3,6 +3,7 @@ import { FaMapMarkerAlt, FaBed, FaShower, FaRulerCombined } from 'react-icons/fa
 import { Link } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination } from 'swiper/modules'
+import { t } from 'i18next'
 
 // Type des props reçues par la carte
 type Props = {
@@ -74,10 +75,10 @@ const AnnonceCard: React.FC<Props> = ({
         {/* Caractéristiques */}
         <div className="flex justify-between text-xs sm:text-sm text-gray-600 border-t pt-3">
           <div className="flex items-center gap-1">
-            <FaBed className="text-gray-500" /> {chambres} ch.
+            <FaBed className="text-gray-500" /> {chambres} {t('annonceCard.ch')}
           </div>
           <div className="flex items-center gap-1">
-            <FaShower className="text-gray-500" /> {douches} sdb
+            <FaShower className="text-gray-500" /> {douches} {t('annonceCard.sdb')}
           </div>
           <div className="flex items-center gap-1">
             <FaRulerCombined className="text-gray-500" /> {surface} m²
@@ -89,7 +90,7 @@ const AnnonceCard: React.FC<Props> = ({
           to={`/annonce/${id}`}
           className="mt-4 inline-block w-full text-center bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-medium transition duration-300"
         >
-          Voir plus
+          {t('annonceCard.btn')}
         </Link>
       </div>
     </div>

@@ -1,3 +1,4 @@
+import { t } from 'i18next';
 import React, { useState } from 'react';
 import { FaFilter, FaSearch, FaTimes } from 'react-icons/fa';
 
@@ -31,17 +32,17 @@ const SearchBar: React.FC = () => {
 
   // Options pour le menu déroulant "Projet"
   const projets = [
-    { value: 'achat', label: 'Achat' },      // Option 1
-    { value: 'location', label: 'Location' }  // Option 2
+    { value: 'achat', label: t('searchbar.achat') },      // Option 1
+    { value: 'location', label: t('searchbar.loc') }  // Option 2
   ];
 
   // Options pour le menu déroulant "Type de bien"
   const typesBiens = [
-    { value: 'maison', label: 'Maison' },
-    { value: 'appartement', label: 'Appartement' },
-    { value: 'terrain', label: 'Terrain' },
-    { value: 'chambre', label: 'Chambre' },
-    { value: 'meublé', label: 'Meublé' }
+    { value: 'maison', label: t('searchbar.maison') },
+    { value: 'appartement', label: t('searchbar.appart') },
+    { value: 'terrain', label: t('searchbar.terrain') },
+    { value: 'chambre', label: t('searchbar.chambre') },
+    { value: 'meublé', label: t('searchbar.meub') }
   ];
 
   // Options pour le menu déroulant "Budget"
@@ -82,7 +83,7 @@ const SearchBar: React.FC = () => {
               onChange={(e) => setFilters({ ...filters, projet: e.target.value })}
               className="p-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
             >
-              <option value="" disabled>Projet</option>
+              <option value="" disabled>{t('searchbar.projet')}</option>
               {projets.map(opt => (
                 <option key={opt.value} value={opt.value}>
                   {opt.label}
@@ -96,7 +97,7 @@ const SearchBar: React.FC = () => {
               onChange={(e) => setFilters({ ...filters, typeBien: e.target.value })}
               className="p-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
             >
-              <option value="" disabled>Type de bien</option>
+              <option value="" disabled>{t('searchbar.typB')}</option>
               {typesBiens.map(opt => (
                 <option key={opt.value} value={opt.value}>
                   {opt.label}
@@ -111,7 +112,7 @@ const SearchBar: React.FC = () => {
               className="p-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
             >
 
-              <option value="" disabled>Budget</option>
+              <option value="" disabled>{t('searchbar.budg')}</option>
               {budgets.map(opt => (
                 <option key={opt.value} value={opt.value}>
                   {opt.label}
@@ -126,7 +127,7 @@ const SearchBar: React.FC = () => {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Rechercher dans LAMAISON..."
+                placeholder={t('searchbar.plchol')}
                 className="w-full p-3 pl-10 border-0 rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-black"
               />
               {/* Icône de loupe positionnée absolument à gauche */}
@@ -142,7 +143,7 @@ const SearchBar: React.FC = () => {
               className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition flex items-center gap-2"
             >
               <FaSearch />
-              <span className="hidden md:inline">Rechercher</span>
+              <span className="hidden md:inline">{t('searchbar.rech')}</span>
             </button>
 
             {/* Bouton Filtrer */}
@@ -152,7 +153,7 @@ const SearchBar: React.FC = () => {
               className="bg-green-600 text-white px-4 py-3 rounded-lg hover:bg-green-700 transition flex items-center gap-2"
             >
               <FaFilter />
-              <span className="hidden md:inline">Filtrer</span>
+              <span className="hidden md:inline">{t('searchbar.filt')}</span>
             </button>
           </div>
         </form>
@@ -163,7 +164,7 @@ const SearchBar: React.FC = () => {
         <div className="absolute z-50 w-full mt-2 bg-white border border-gray-200 rounded-lg shadow-lg p-6">
           {/* En-tête du panneau */}
           <div className="flex justify-between items-center mb-4">
-            <h3 className="text-lg font-bold text-gray-800">Critères avancés</h3>
+            <h3 className="text-lg font-bold text-gray-800">{t('searchbar.crit')}</h3>
             <button
               onClick={() => setIsFilterOpen(false)}
               className="text-gray-500 hover:text-gray-700"
@@ -178,7 +179,7 @@ const SearchBar: React.FC = () => {
 
             {/* Filtre Surface */}
             <div>
-              <h4 className="font-medium text-gray-700 mb-2">Surface en m²</h4>
+              <h4 className="font-medium text-gray-700 mb-2">{t('searchbar.surfm')}</h4>
               <div className="flex gap-2">
                 <input
                   type="number"
@@ -205,7 +206,7 @@ const SearchBar: React.FC = () => {
 
             {/* Filtre Chambres */}
             <div>
-              <h4 className="font-medium text-gray-700 mb-2">Chambres</h4>
+              <h4 className="font-medium text-gray-700 mb-2">{t('searchbar.chambre')}</h4>
               <div className="flex flex-wrap gap-2">
                 {[1, 2, 3, 4, '5+'].map(item => (
                   <button
@@ -227,16 +228,16 @@ const SearchBar: React.FC = () => {
               <h4 className="font-medium text-gray-700 mb-2">Options</h4>
               <div className="space-y-2">
                 {Object.entries(filters.options).map(([key, value]) => {
-                  const space: Record<string, string> = {
-                    piscine: "piscine",
-                    terrasse: "terrasse",
-                    jardin: "jardin",
-                    cheminée: "cheminée",
-                    parking: "parking",
-                    climatisation: "climatisation",
-                    security: "système de vidéo surveillance",
-                    guard: "société de gardiennage"
-                  }
+                  // const space: Record<string, string> = {
+                  //   piscine: "piscine",
+                  //   terrasse: "terrasse",
+                  //   jardin: "jardin",
+                  //   cheminée: "cheminée",
+                  //   parking: "parking",
+                  //   climatisation: "climatisation",
+                  //   security: "système de vidéo surveillance",
+                  //   guard: "société de gardiennage"
+                  // }
                   return (
                     < label key={key} className="flex items-center gap-2 cursor-pointer" >
                       <input
@@ -248,7 +249,9 @@ const SearchBar: React.FC = () => {
                         })}
                         className="w-4 h-4 text-green-600 rounded border-gray-300 focus:ring-green-500"
                       />
-                      <span className="">{space[key] || key}</span>
+
+                      {/* <span>{space[key] || key}</span> */}
+                      <span> {t(`options.${key}`)}</span>
                     </label>
                   )
                 })}
@@ -262,7 +265,7 @@ const SearchBar: React.FC = () => {
               onClick={() => setIsFilterOpen(false)}
               className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition"
             >
-              Annuler
+             {t('searchbar.annuler')}
             </button>
             <button
               onClick={() => {
@@ -271,7 +274,7 @@ const SearchBar: React.FC = () => {
               }}
               className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
             >
-              Appliquer
+              {t('searchbar.appliquer')}
             </button>
           </div>
         </div>

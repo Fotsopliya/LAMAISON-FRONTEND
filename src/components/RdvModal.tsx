@@ -1,3 +1,4 @@
+import { t } from 'i18next'
 import React, { useState } from 'react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
@@ -43,7 +44,7 @@ const RdvModal: React.FC<RdvModalProps> = ({
         </button>
 
         <h3 className="text-xl sm:text-2xl font-semibold mb-4 text-center">
-          Prendre rendez-vous avec <span className="text-green-600">{proprietaireNom}</span>
+          {t('rdvModal.pdrRDV')} <span className="text-green-600">{proprietaireNom}</span>
         </h3>
 
         {/* Formulaire de RDV */}
@@ -51,7 +52,7 @@ const RdvModal: React.FC<RdvModalProps> = ({
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <input
               type="text"
-              placeholder="Nom"
+              placeholder={t('rdvModal.nom')}
               value={nom}
               onChange={(e) => setNom(e.target.value)}
               className="border p-2 rounded w-full"
@@ -59,7 +60,7 @@ const RdvModal: React.FC<RdvModalProps> = ({
             />
             <input
               type="text"
-              placeholder="Prénom"
+              placeholder={t('rdvModal.prenom')}
               value={prenom}
               onChange={(e) => setPrenom(e.target.value)}
               className="border p-2 rounded w-full"
@@ -70,7 +71,7 @@ const RdvModal: React.FC<RdvModalProps> = ({
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <input
               type="email"
-              placeholder="Adresse email"
+              placeholder={t('rdvModal.email')}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="border p-2 rounded w-full"
@@ -78,7 +79,7 @@ const RdvModal: React.FC<RdvModalProps> = ({
             />
             <input
               type="tel"
-              placeholder="Téléphone"
+              placeholder={t('rdvModal.tel')}
               value={tel}
               onChange={(e) => setTel(e.target.value)}
               className="border p-2 rounded w-full"
@@ -92,7 +93,7 @@ const RdvModal: React.FC<RdvModalProps> = ({
               selected={date}
               onChange={(val) => setDate(val)}
               dateFormat="dd/MM/yyyy"
-              placeholderText="Date du RDV"
+              placeholderText={t('rdvModal.dte')}
               className="border p-2 rounded w-full"
               required
             />
@@ -104,9 +105,9 @@ const RdvModal: React.FC<RdvModalProps> = ({
               showTimeSelect
               showTimeSelectOnly
               timeIntervals={15}
-              timeCaption="Heure"
+              timeCaption={t('rdvModal.heure')}
               dateFormat="HH:mm"
-              placeholderText="Heure du RDV"
+              placeholderText={t('rdvModal.heureRdv')}
               className="border p-2 rounded w-full"
               required
             />
@@ -114,7 +115,7 @@ const RdvModal: React.FC<RdvModalProps> = ({
 
           {/* Champ message libre */}
           <textarea
-            placeholder="Message (facultatif)"
+            placeholder={t('rdvModal.msg')}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             className="border p-2 rounded w-full"
@@ -126,7 +127,7 @@ const RdvModal: React.FC<RdvModalProps> = ({
             type="submit"
             className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 transition"
           >
-            Envoyer la demande
+            {t('rdvModal.envy')}
           </button>
         </form>
       </div>

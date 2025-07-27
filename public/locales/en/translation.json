@@ -1,6 +1,153 @@
 {
     "heroSection": {
         "title": "Find your ideal property",
-        "desc":"With LAMAISON, explore thousands of listings in one click"
+        "desc": "With LAMAISON, explore thousands of listings in one click",
+        "btn": "view property"
+    },
+    "annoncepreview": {
+        "recent": "Recent Listings"
+    },
+    "navbar": {
+        "acc": "Home",
+        "ann": "Listings",
+        "aprop": "About",
+        "cont": "Contact",
+        "connex": "Login"
+    },
+    "annonceCard": {
+        "btn": "See more",
+        "ch": "Rm.",
+        "sdb": "Bth."
+    },
+    "searchbar": {
+        "achat": "Buy",
+        "loc": "Rent",
+        "maison": "House",
+        "appart": "Apartment",
+        "terrain": "Land",
+        "chambre": "Rooms",
+        "meub": "Furnished",
+        "projet": "Project",
+        "typB": "Type of property",
+        "budg": "Budget",
+        "rech": "Search",
+        "filt": "Filter",
+        "plchol": "Search in LAMAISON...",
+        "crit": "Advanced search filters",
+        "surfm": "Area in m²",
+        "appliquer": "Apply",
+        "annuler": "Cancel"
+    },
+    "options": {
+        "piscine": "Swimming pool",
+        "terrasse": "Terrace",
+        "jardin": "Garden",
+        "cheminée": "Fireplace",
+        "parking": "Parking",
+        "climatisation": "Air conditioning",
+        "security": "Video surveillance system",
+        "guard": "Security guard company"
+    },
+    "annonceDetail": {
+        "annIn": "property not found",
+        "propN": "Owner not defined",
+        "pub": "Published on",
+        "surf": "Area",
+        "aper": "Overview",
+        "douches": "Bathrooms"
+    },
+    "annonces": {
+        "tteA": "All our listings"
+    },
+    "ownerCard": {
+        "RDV": "📅 Book an appointment"
+    },
+    "rdvModal": {
+        "pdrRDV": "Book an appointment with",
+        "nom": "Surname",
+        "prenom": "First name",
+        "email": "email",
+        "tel": "Phone",
+        "dte": "Date of appointment",
+        "heureRdv": "Time of appointment",
+        "heure": "Time",
+        "msg": "Message (optional)",
+        "envy": "Send request"
+    },
+    "apropos": {
+        "title": "About LAMAISON",
+        "body1": " is a modern platform that connects ",
+        "body2": "individuals",
+        "et": "and",
+        "body3": "real estate professionals ",
+        "body4": "We simplify property searching, selling, and renting through a fast, secure, and user-friendly interface.",
+        "body5": "Our goal is to fully digitalize the real estate journey from browsing, listings to booking appointments, handling payments, and signing contracts.",
+        "body6": "Whether you're a private seller looking to market your property or a real estate agency aiming to showcase your listings efficiently,",
+        "body7": "LAMAISON",
+        "body8": " is built for you."
+    },
+    "contact": {
+        "contact": "Contact us",
+        "comN": "Your full name",
+        "Vemail": "Your e-mail address",
+        "expN": "Tell us how we can help...",
+        "envyM": "Send message"
+    },
+    "connexion": {
+        "connexion": "Login",
+        "vmail": "Your email",
+        "mdp": "Password",
+        "Vmdp": "Your password",
+        "seConn": "Sign in",
+        "pasCompte": "Don't have an account ?",
+        "clique": "Click here"
+    },
+    "inscription": {
+        "cree": "Create an account",
+        "entrPre": "Enter your firstname",
+        "entrEmail": "Enter your email",
+        "creeMdp": "Create a password",
+        "jeSuis": "I am :",
+        "choisirR": "-- Select your role --",
+        "prospect": " Private individual (Buyer/Seller)",
+        "agent": "Real estate agent(Professionnal)",
+        "inscrire": "Sign up"
+    },
+    "footer": {
+        "prosAgen": " Real estate platform connecting private individuals and professionals.",
+        "legal": "Legal",
+        "condGen": "General terms",
+        "menLeg": "Legal Notice",
+        "conf": "Confidentiality",
+        "suivre": "Follow us",
+        "copyright": "© {{year}} LAMAISON. All rights reserved."
+    },
+    "CGU": {
+        "title": "Terms of Use",
+        "intro": "Welcome to LAMAISON. By using this site, you agree to these terms of use.",
+        "body1": "1. Purpose of the Website",
+        "body2": "LAMAISON is a platform that connects individuals and professionals in the real estate sector.",
+        "body3": "2. Use of the Service",
+        "body4": "Any abusive or fraudulent use of the site may lead to account suspension.",
+        "body5": "3. Intellectual Property",
+        "body6": "All content available on the site is the property of LAMAISON and may not be reproduced without prior authorization."
+    },
+    "confidentialite": {
+        "title": "Privacy Policy",
+        "intro": "LAMAISON respects your privacy. No personal data will be sold to third parties.",
+        "body1": "Data Collection",
+        "body2": "The information collected is used solely for managing your account and listings.",
+        "body3": "Cookies",
+        "body4": "The site uses cookies to enhance the user experience.",
+        "body5": "User Rights",
+        "body6": "You may request to view, modify, or delete your data at any time."
+    },
+    "mentionslegales": {
+        "title": "Legal Notice",
+        "intro": "The LAMAISON website is published by SWISS ECO CONCEPT, based in Yaoundé, Av Wilson Churchill Hippodrome, adjoining OAPI building, registered under number [RC/CNI/NINEA].",
+        "body1": "Hosting Provider: [Name of hosting provider], located at [address]."
+    },
+    "logo": {
+        "title": "back to homepage"
     }
 }

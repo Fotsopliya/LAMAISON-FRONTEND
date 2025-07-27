@@ -1,3 +1,4 @@
+import { t } from 'i18next'
 import React, { useState } from 'react'
 
 interface LoginForm {
@@ -27,7 +28,7 @@ const Connexion = () => {
 
     return (
         <div className="mt-24 px-4 max-w-lg mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-8 text-green-600">Connexion</h2>
+            <h2 className="text-3xl font-bold text-center mb-8 text-green-600">{t('connexion.connexion')}</h2>
 
             <form onSubmit={handleSubmit} className="bg-white shadow-lg rounded-2xl px-8 py-10 space-y-6">
                 <div>
@@ -38,20 +39,20 @@ const Connexion = () => {
                         value={form.email}
                         onChange={handleChange}
                         required
-                        placeholder="Votre email"
+                        placeholder={t('connexion.vmail')}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition"
                     />
                 </div>
 
                 <div>
-                    <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">Mot de passe</label>
+                    <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">{t('connexion.mdp')}</label>
                     <input
                         type="password"
                         name="password"
                         value={form.password}
                         onChange={handleChange}
                         required
-                        placeholder="Votre mot de passe"
+                        placeholder={t('connexion.Vmdp')}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition"
                     />
                 </div>
@@ -60,12 +61,12 @@ const Connexion = () => {
                     type="submit"
                     className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg transition"
                 >
-                    Se connecter
+                    {t('connexion.seConn')}
                 </button>
                 <p className="text-sm text-center text-gray-600">
-                    Vous n'avez pas de compte ?{" "}
+                    {t('connexion.pasCompte')}{" "}
                     <a href="/inscription" className="text-green-600 hover:underline font-semibold">
-                        Cliquez ici
+                        {t('connexion.clique')}
                     </a>
                 </p>
 
