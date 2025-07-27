@@ -94,7 +94,7 @@ const HeroSection: React.FC = () => {
                   to={`/annonce/${annonce.id}`}  // Navigation SPA (pas de reload)
                   className="bg-green-600 px-4 py-2 rounded-lg hover:bg-green-700 transition"
                 >
-                  Voir l'annonce
+                  {t('heroSection.btn')}
                 </Link>
               </div>
             </div>

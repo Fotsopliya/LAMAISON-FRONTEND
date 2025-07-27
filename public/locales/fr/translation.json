@@ -1,7 +1,153 @@
 {
     "heroSection": {
         "title": "Trouvez le bien immobilier idéal",
-        "desc": " Avec LAMAISON, explorez des milliers d’annonces en un clic."
-
+        "desc": " Avec LAMAISON, explorez des milliers d’annonces en un clic.",
+        "btn": "Voir l'annonce"
+    },
+    "annoncepreview": {
+        "recent": "Annonces récentes"
+    },
+    "navbar": {
+        "acc": "Accueil",
+        "ann": "Annonces",
+        "aprop": "À propos",
+        "cont": "Contact",
+        "connex": "Connexion"
+    },
+    "annonceCard": {
+        "btn": "Voir plus",
+        "ch": "ch.",
+        "sdb": "sdb."
+    },
+    "searchbar": {
+        "achat": "Achat",
+        "loc": "Location",
+        "maison": "Maison",
+        "appart": "Appartement",
+        "terrain": "Terrain",
+        "chambre": "Chambre",
+        "meub": "Meublé",
+        "projet": "Projet",
+        "typB": "Type de bien",
+        "budg": "Budget",
+        "rech": "Rechercher",
+        "filt": "Filtrer",
+        "plchol": "Rechercher dans LAMAISON...",
+        "crit": "Critères avancés",
+        "surfm": "Surface en m²",
+        "appliquer": "Appliquer",
+        "annuler": "Annuler"
+    },
+    "options": {
+        "piscine": "Piscine",
+        "terrasse": "Terrasse",
+        "jardin": "Jardin",
+        "cheminée": "Cheminée",
+        "parking": "Parking",
+        "climatisation": "Climatisation",
+        "security": "Système de vidéosurveillance",
+        "guard": "Société de gardiennage"
+    },
+    "annonceDetail": {
+        "annIn": "Annonce introuvable",
+        "propN": "Propriétaire non renseigné",
+        "pub": "Publié le",
+        "surf": "Surface",
+        "aper": "Aperçu",
+        "douches": "Douches"
+    },
+    "annonces": {
+        "tteA": "Toutes nos annonces"
+    },
+    "ownerCard": {
+        "RDV": "📅 Prendre RDV"
+    },
+    "rdvModal": {
+        "pdrRDV": "Prendre rendez-vous avec",
+        "nom": "Nom",
+        "prenom": "Prénom",
+        "email": "email",
+        "tel": "Téléphone",
+        "dte": "Date du RDV",
+        "heureRdv": "Heure du RDV",
+        "heure": "Heure",
+        "msg": "Message (facultatif)",
+        "envy": "Envoyer la demande"
+    },
+    "apropos": {
+        "title": "À propos de LAMAISON",
+        "body1": "est une plateforme moderne de mise en relation entre",
+        "body2": "particuliers",
+        "et": "et",
+        "body3": "professionnels de l'immobilier",
+        "body4": "Nous facilitons la recherche, la vente et la location de biens immobiliers à travers une interface simple, rapide et sécurisée.",
+        "body5": "Notre objectif est de digitaliser entièrement le parcours immobilier, depuis la consultation des annonces jusqu'à la prise de rendez-vous, les paiements et la signature des contrats.",
+        "body6": "Que vous soyez un particulier souhaitant vendre votre bien ou une agence immobilière souhaitant diffuser vos annonces efficacement,",
+        "body7": "LAMAISON",
+        "body8": "est conçu pour vous."
+    },
+    "contact": {
+        "contact": "Contactez-nous",
+        "comN": "Votre nom complet",
+        "Vemail": "Votre adresse e-mail",
+        "expN": "Expliquez-nous comment nous pouvons vous aider...",
+        "envyM": "Envoyer le message"
+    },
+    "connexion": {
+        "connexion": "Connexion",
+        "vmail": "Votre email",
+        "mdp": "Mot de passe",
+        "Vmdp": "Votre mot de passe",
+        "seConn": "Se connecter",
+        "pasCompte": "Vous n'avez pas de compte ?",
+        "clique": "Cliquez ici"
+    },
+    "inscription": {
+        "cree": "Créer un compte",
+        "entrPre": "Entrez votre prénom",
+        "entrEmail": "Entrez votre email",
+        "creeMdp": "Créez un mot de passe",
+        "jeSuis": "Je suis :",
+        "choisirR": "-- Sélectionnez votre rôle --",
+        "prospect": "Particulier (Acheteur/Vendeur)",
+        "agent": "Agent immobilier (Professionnel)",
+        "inscrire": "S’inscrire"
+    },
+    "footer": {
+        "prosAgen": " Plateforme immobilière entre particuliers et professionnels.",
+        "legal": "Légal",
+        "condGen": "Conditions générales",
+        "menLeg": "Mentions légales",
+        "conf": "Confidentialité",
+        "suivre": "Suivez-nous",
+        "copyright": "© {{year}} LAMAISON. Tous droits réservés."
+    },
+    "CGU": {
+        "title": "Conditions Générales d’Utilisation",
+        "intro": "Bienvenue sur LAMAISON. En utilisant ce site, vous acceptez les présentes conditions générales d'utilisation.",
+        "body1": "1. Objet du site",
+        "body2": "LAMAISON est une plateforme de mise en relation entre particuliers et professionnels du secteur immobilier.",
+        "body3": "2. Utilisation du service",
+        "body4": "Toute utilisation abusive ou frauduleuse du site pourra entraîner une suspension de compte.",
+        "body5": "3. Propriété intellectuelle",
+        "body6": "Tous les contenus présents sur le site sont la propriété de LAMAISON et ne peuvent être reproduits sans autorisation."
+    },
+    "confidentialite": {
+        "title": "Politique de Confidentialité",
+        "intro": "LAMAISON respecte votre vie privée. Aucune donnée personnelle ne sera vendue à des tiers.",
+        "body1": "Collecte des données",
+        "body2": "Les informations collectées sont utilisées uniquement pour la gestion de votre compte et de vos annonces.",
+        "body3": "Cookies",
+        "body4": "Le site utilise des cookies pour améliorer l’expérience utilisateur.",
+        "body5": "Droits des utilisateurs",
+        "body6": "Vous pouvez demander à consulter, modifier ou supprimer vos données à tout moment."
+    },
+    "mentionslegales": {
+        "title": "Mentions Légales",
+        "intro": "Le site LAMAISON est édité par SWISS ECO CONCEPT, basé à Yaoundé, Av Wilson Churchill Hippodrome, Immeuble mitoyen OAPI, immatriculé sous le numéro [RC/CNI/NINEA].",
+        "body1": "Hébergeur : [Nom de l’hébergeur], situé à [adresse]."
+    },
+    "logo": {
+        "title": "retour à la page d'accueil"
     }
 }

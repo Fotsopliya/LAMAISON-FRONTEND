@@ -1,11 +1,12 @@
 import React from 'react'
 import { AnnoncesMock } from '../../lib/mock'
 import AnnonceCard from '../../components/AnnonceCard'
+import { t } from 'i18next'
 
 const AnnoncesPreview: React.FC = () => {
   return (
     <section className="py-8 px-4">
-      <h2 className="text-2xl font-semibold mb-6 text-center">Annonces récentes</h2>
+      <h2 className="text-2xl font-semibold mb-6 text-center">{t('annoncepreview.recent')}</h2>
 
 {/* Grille responsive : 1 colonne sur mobile, 2 sur petits écrans, 3 sur grands */}
       <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">

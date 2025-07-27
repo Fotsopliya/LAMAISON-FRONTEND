@@ -1,3 +1,4 @@
+import { t } from 'i18next'
 import React, { useState } from 'react'
 
 interface FormData {
@@ -30,12 +31,12 @@ const Inscription = () => {
 
   return (
     <div className="mt-24 px-4 max-w-lg mx-auto">
-      <h2 className="text-3xl font-bold text-center mb-8 text-green-600">Créer un compte</h2>
+      <h2 className="text-3xl font-bold text-center mb-8 text-green-600">{t('inscription.cree')}</h2>
 
       <form onSubmit={handleForm} className="bg-white shadow-lg rounded-2xl px-8 py-10 space-y-6">
         <div>
           <label htmlFor="firstname" className="block text-sm font-medium text-gray-700 mb-1">
-            Prénom
+             {t('rdvModal.prenom')}
           </label>
           <input
             type="text"
@@ -44,7 +45,7 @@ const Inscription = () => {
             value={form.firstname}
             onChange={handleChange}
             required
-            placeholder="Entrez votre prénom"
+            placeholder={t('inscription.entrPre')}
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition"
           />
         </div>
@@ -60,14 +61,14 @@ const Inscription = () => {
             value={form.email}
             onChange={handleChange}
             required
-            placeholder="Entrez votre email"
+            placeholder= {t('inscription.entrEmail')}
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition"
           />
         </div>
 
         <div>
           <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
-            Mot de passe
+            {t('connexion.mdp')}
           </label>
           <input
             type="password"
@@ -76,14 +77,14 @@ const Inscription = () => {
             value={form.password}
             onChange={handleChange}
             required
-            placeholder="Créez un mot de passe"
+            placeholder={t('inscription.creeMdp')}
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition"
           />
         </div>
 
         <div>
           <label htmlFor="role" className="block text-sm font-medium text-gray-700 mb-1">
-            Je suis :
+            {t('inscription.jeSuis')}
           </label>
           <select
             name="role"
@@ -93,9 +94,9 @@ const Inscription = () => {
             required
             className="w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition"
           >
-            <option value="">-- Sélectionnez votre rôle --</option>
-            <option value="prospect">Particulier (Acheteur/Vendeur)</option>
-            <option value="agent">Agent immobilier (Professionnel)</option>
+            <option value="">{t('inscription.choisirR')}</option>
+            <option value="prospect">{t('inscription.prospect')}</option>
+            <option value="agent">{t('inscription.agent')}</option>
           </select>
         </div>
 
@@ -103,7 +104,7 @@ const Inscription = () => {
           type="submit"
           className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg transition"
         >
-          S’inscrire
+          {t('inscription.inscrire')}
         </button>
       </form>
     </div>
