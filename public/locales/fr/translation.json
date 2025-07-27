@@ -72,7 +72,8 @@
         "heureRdv": "Heure du RDV",
         "heure": "Heure",
         "msg": "Message (facultatif)",
-        "envy": "Envoyer la demande"
+        "envy": "Envoyer la demande",
+        "sejour":"séjour"
     },
     "apropos": {
         "title": "À propos de LAMAISON",
@@ -149,5 +150,11 @@
     },
     "logo": {
         "title": "retour à la page d'accueil"
+    },
+    "dateseJourPicker":{
+        "duree":"📆 Choisir la durée du séjour",
+        "arrivee":"Date d'arrivée",
+        "depart":"Date de départ",
+        "selection":"Sélectionner une date"
     }
 }
