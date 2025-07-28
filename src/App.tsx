@@ -15,147 +15,74 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 function LocaleWrapper() {
-  const { i18n } = useTranslation(); //On accède directement à l'instance i18n pour gérer l'initialisation
-  const { lng } = useParams<{ lng: string }>(); // Récupère la langue depuis l'URL (ex: /fr, /en)
-  const location = useLocation();  //  Utile pour rediriger proprement si la langue est absente ou incorrecte
- const [ready, setReady] = useState(false); //  État local pour attendre que i18next soit prêt
+  const { i18n } = useTranslation(); // Accès à l’instance i18next
+  const { lng } = useParams<{ lng: string }>(); // Langue récupérée depuis l’URL
+  const location = useLocation(); // Pour rediriger ou récupérer le chemin actuel
+  const [ready, setReady] = useState(false); // Permet de bloquer le rendu tant que la langue n’est pas chargée
 
   useEffect(() => {
-    //  Vérifie que lng est une langue valide
-    if (!lng || !['fr', 'en'].includes(lng)) {
-      return;
-    }
+    // Si la langue est invalide, on ne fait rien
+    if (!lng || !['fr', 'en'].includes(lng)) return;
 
-    const handleInit = () => {
-      setReady(true); //  Lorsque l'init est terminée, on passe à l'affichage de l'app
-    };
+    const handleInit = () => setReady(true);
 
+    // Si i18next est déjà prêt avec la bonne langue → rien à faire
     if (i18n.isInitialized && i18n.language === lng) {
-      //  Si i18next est déjà prêt ET que la langue est bonne, on évite le changement
       setReady(true);
     } else {
-      //  Sinon on attend la fin du changement de langue (async) avant de rendre quoi que ce soit
+      // Sinon → on change de langue puis on attend qu’elle soit prête
       i18n.changeLanguage(lng).then(() => handleInit());
     }
 
-    //  Nettoie l'écouteur si jamais il est mis en place
+    // Nettoyage éventuel (sécurité)
     return () => {
       i18n.off('initialized', handleInit);
     };
-  }, [lng, i18n]); //  Ce bloc se relance à chaque changement de langue ou d'instance
+  }, [lng, i18n]);
 
-  //  Redirection si la langue est absente ou non supportée
+  // Si la langue n’est pas présente ou incorrecte → redirection propre vers "/en"
   if (!lng || !['fr', 'en'].includes(lng)) {
     return <Navigate to={`/en${location.pathname}`} replace />;
   }
 
-  // Bloque le rendu tant que i18next n'est pas prêt
+  // Si la langue n’est pas encore chargée → on affiche un petit loader
   if (!ready) {
-    return <div>Chargement des traductions…</div>; //  Spinner ou placeholder temporaire
+    return <div>Chargement des traductions…</div>;
   }
 
-  // useEffect(() => {
-  //   if (lng && i18n.language !== lng) {
-  //     i18n.changeLanguage(lng);
-  //   }
-  // }, [lng, i18n]);
-
-  // if (!lng || !['en', 'fr'].includes(lng)) {
-  //   return <Navigate to={`/en${location.pathname}`} replace />;
-  // }
-
-  return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/accueil" element={<Home />} />
-      <Route path="/annonces" element={<Annonces />} />
-      <Route path="/annonce/:id" element={<AnnonceDetail />} />
-      <Route path="/à propos" element={<APropos />} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="/connexion" element={<Connexion />} />
-      <Route path="/inscription" element={<Inscription />} />
-      <Route path="/cgu" element={<CGU />} />
-      <Route path="/mentions-legales" element={<MentionsLegales />} />
-      <Route path="/confidentialite" element={<Confidentialite />} />
-      {/* Fallback for undefined routes */}
-      <Route path="*" element={<Navigate to={`/${lng}/`} replace />} />
-    </Routes>
-  );
-}
-
-function App() {
+  // Les routes traduites dans le contexte de la langue (ex: /fr/contact)
   return (
     <Layout>
       <Routes>
-        <Route path="/" element={<Navigate to="/fr/" replace />} />
-        <Route path=":lng/*" element={<LocaleWrapper />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/accueil" element={<Home />} />
+        <Route path="/annonces" element={<Annonces />} />
+        <Route path="/annonce/:id" element={<AnnonceDetail />} />
+        <Route path="/à propos" element={<APropos />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/connexion" element={<Connexion />} />
+        <Route path="/inscription" element={<Inscription />} />
+        <Route path="/cgu" element={<CGU />} />
+        <Route path="/mentions-legales" element={<MentionsLegales />} />
+        <Route path="/confidentialite" element={<Confidentialite />} />
+
+        {/* Redirection pour les routes inconnues */}
+        <Route path="*" element={<Navigate to={`/${lng}/`} replace />} />
       </Routes>
     </Layout>
   );
 }
 
+function App() {
+  return (
+    <Routes>
+      {/* Redirection initiale vers la langue par défaut */}
+      <Route path="/" element={<Navigate to="/fr/" replace />} />
+
+      {/* Toutes les routes sont regroupées sous le préfixe langue */}
+      <Route path=":lng/*" element={<LocaleWrapper />} />
+    </Routes>
+  );
+}
+
 export default App;
-
-// import { Routes, Route, Navigate, useLocation, useParams } from 'react-router-dom';
-// import './App.css'
-// import Layout from './layouts/Layout'
-// import Annonces from './pages/Annonce/Annonces'
-// import Home from './pages/Home/Home'
-// import AnnonceDetail from './pages/Annonce/AnnonceDetail';
-// import Inscription from './pages/Auth/Inscription';
-// import Connexion from './pages/Auth/Connexion';
-// import APropos from './pages/About/APropos';
-// import Contact from './pages/Contact/Contact';
-// import CGU from './pages/CGU/CGU';
-// import MentionsLegales from './pages/LegalMetion/MentionsLegales';
-// import Confidentialite from './pages/Confidentiality/Confidentiality';
-// import { useEffect } from 'react';
-// import { useTranslation } from 'react-i18next';
-
-
-// function LocaleWrapper() {
-//   const { i18n } = useTranslation();
-//   const { lng } = useParams<{ lng: string }>();
-//   const location = useLocation();
-
-//   useEffect(() => {
-//     if (lng && i18n.language !== lng) {
-//       i18n.changeLanguage(lng);
-//     }
-//   }, [lng, i18n]);
-
-//   if (!lng || !['en', 'fr'].includes(lng)) {
-//     return <Navigate to={/en${location.pathname}} replace />;
-//   }
-
-//   return (
-//     <Routes>
-//       <Route path="/" element={<Home />} />
-//       <Route path="/acceuil" element={<Home />} />
-//       <Route path="/annonces" element={<Annonces />} />
-//       <Route path="/annonce/:id" element={<AnnonceDetail />} />
-//       <Route path="/à propos" element={<APropos />} />
-//       <Route path="/contact" element={<Contact />} />
-//       <Route path="/connexion" element={<Connexion />} />
-//       <Route path="/inscription" element={<Inscription />} />
-//       <Route path="/cgu" element={<CGU />} />
-//       <Route path="/mentions-legales" element={<MentionsLegales />} />
-//       <Route path="/confidentialite" element={<Confidentialite />} />
-//     </Routes>
-//   );
-// }
-
-// function App() {
-
-//   return (
-//     <Layout>
-//       <Routes>
-//         <Route path="/" element={<Navigate to="/en/" replace />} />
-//         <Route path=":lng/*" element={<LocaleWrapper />} />
-//       </Routes>
-//     </Layout>
-
-//   )
-// }
-
-// export default App
