@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { Link, useParams } from 'react-router-dom';
 
 const year = new Date().getFullYear();
+const year = new Date().getFullYear();
 
 const Footer: React.FC = () => {
     const { t, ready } = useTranslation();
@@ -51,6 +52,7 @@ const Footer: React.FC = () => {
             {/* Bas de page */}
             <div className="bg-gray-200 text-center text-sm py-4 mt-4">
                 {/* &copy; {new Date().getFullYear()} LAMAISON. Tous droits réservés. */}
+                {t('footer.copyright', { year })}
                 {t('footer.copyright', { year })}
             </div>
         </footer>
