@@ -1,11 +1,16 @@
 import React from 'react'
 import logo from '../assets/logo.jpg'
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa'
-import { t } from 'i18next'
+import { useTranslation } from 'react-i18next';
 
- const year = new Date().getFullYear();
+const year = new Date().getFullYear();
 
 const Footer: React.FC = () => {
+    const { t, ready } = useTranslation();
+
+    if (!ready) return null; // or a fallback/loading state
+
+
     return (
         <footer className="bg-gray-200 text-gray-800 mt-16">
             <div className="max-w-6xl mx-auto px-4 py-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
@@ -44,7 +49,7 @@ const Footer: React.FC = () => {
             {/* Bas de page */}
             <div className="bg-gray-200 text-center text-sm py-4 mt-4">
                 {/* &copy; {new Date().getFullYear()} LAMAISON. Tous droits réservés. */}
-                 {t('footer.copyright', { year })}
+                {t('footer.copyright', { year })}
             </div>
         </footer>
     )
