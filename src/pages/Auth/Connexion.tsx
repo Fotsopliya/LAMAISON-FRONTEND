@@ -1,5 +1,6 @@
 import { t } from 'i18next'
 import React, { useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
 
 interface LoginForm {
     email: string
@@ -25,7 +26,7 @@ const Connexion = () => {
             [name]: value
         }))
     }
-
+    const { lng } = useParams<{ lng: string }>();
     return (
         <div className="mt-24 px-4 max-w-lg mx-auto">
             <h2 className="text-3xl font-bold text-center mb-8 text-green-600">{t('connexion.connexion')}</h2>
@@ -65,9 +66,9 @@ const Connexion = () => {
                 </button>
                 <p className="text-sm text-center text-gray-600">
                     {t('connexion.pasCompte')}{" "}
-                    <a href="/inscription" className="text-green-600 hover:underline font-semibold">
+                    <Link to={`/${lng}/inscription`} className="text-green-600 hover:underline font-semibold">
                         {t('connexion.clique')}
-                    </a>
+                    </Link>
                 </p>
 
             </form>

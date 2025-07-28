@@ -18,7 +18,7 @@ function LocaleWrapper() {
   const { i18n } = useTranslation(); //On accède directement à l'instance i18n pour gérer l'initialisation
   const { lng } = useParams<{ lng: string }>(); // Récupère la langue depuis l'URL (ex: /fr, /en)
   const location = useLocation();  //  Utile pour rediriger proprement si la langue est absente ou incorrecte
- const [ready, setReady] = useState(false); //  État local pour attendre que i18next soit prêt
+  const [ready, setReady] = useState(false); //  État local pour attendre que i18next soit prêt
 
   useEffect(() => {
     //  Vérifie que lng est une langue valide
@@ -65,32 +65,34 @@ function LocaleWrapper() {
   // }
 
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/accueil" element={<Home />} />
-      <Route path="/annonces" element={<Annonces />} />
-      <Route path="/annonce/:id" element={<AnnonceDetail />} />
-      <Route path="/à propos" element={<APropos />} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="/connexion" element={<Connexion />} />
-      <Route path="/inscription" element={<Inscription />} />
-      <Route path="/cgu" element={<CGU />} />
-      <Route path="/mentions-legales" element={<MentionsLegales />} />
-      <Route path="/confidentialite" element={<Confidentialite />} />
-      {/* Fallback for undefined routes */}
-      <Route path="*" element={<Navigate to={`/${lng}/`} replace />} />
-    </Routes>
+    <Layout>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/accueil" element={<Home />} />
+        <Route path="/annonces" element={<Annonces />} />
+        <Route path="/annonce/:id" element={<AnnonceDetail />} />
+        <Route path="/à propos" element={<APropos />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/connexion" element={<Connexion />} />
+        <Route path="/inscription" element={<Inscription />} />
+        <Route path="/cgu" element={<CGU />} />
+        <Route path="/mentions-legales" element={<MentionsLegales />} />
+        <Route path="/confidentialite" element={<Confidentialite />} />
+        {/* Fallback for undefined routes */}
+        <Route path="*" element={<Navigate to={`/${lng}/`} replace />} />
+      </Routes>
+    </Layout>
   );
 }
 
 function App() {
   return (
-    <Layout>
-      <Routes>
-        <Route path="/" element={<Navigate to="/fr/" replace />} />
-        <Route path=":lng/*" element={<LocaleWrapper />} />
-      </Routes>
-    </Layout>
+
+    <Routes>
+      <Route path="/" element={<Navigate to="/fr/" replace />} />
+      <Route path=":lng/*" element={<LocaleWrapper />} />
+    </Routes>
+
   );
 }
 

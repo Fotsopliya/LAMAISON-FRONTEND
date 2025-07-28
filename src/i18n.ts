@@ -24,10 +24,15 @@ i18n
     fallbackLng: 'en',
     debug: true,
 
+    // detection: {
+    //   order: ['path', 'querystring', 'cookie', 'localStorage'],
+    //   lookupFromPathIndex: 0,
+    //   caches: ['cookie'],
+    // },
+
     detection: {
-      order: ['path', 'querystring', 'cookie', 'localStorage'],
-      lookupFromPathIndex: 0,
-      caches: ['cookie'],
+      order: ['localStorage', 'navigator'],
+      caches: ['localStorage']
     },
 
     backend: {
