@@ -13,11 +13,34 @@ const Connexion = () => {
         password: ''
     })
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
-        console.log('Login attempt', form)
-        // on pourra ensuite envoyer les données au backend
+    // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    //     e.preventDefault()
+    //     console.log('Login attempt', form)
+    //     // on pourra ensuite envoyer les données au backend
+    // }
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+
+  try {
+    const response = await fetch('http://localhost:5000/auth/signin', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(form),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      console.log('Connexion réussie', data);
+      // Stocker le token si tu en reçois un
+      // Rediriger vers une page protégée
+    } else {
+      console.error('Erreur de connexion', data.message);
     }
+  } catch (error) {
+    console.error('Erreur réseau', error);
+  }
+};
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target

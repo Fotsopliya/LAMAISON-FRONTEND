@@ -1,9 +1,10 @@
 import React from 'react'
 import { FaMapMarkerAlt, FaBed, FaShower, FaRulerCombined } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination } from 'swiper/modules'
 import { t } from 'i18next'
+
 
 // Type des props reçues par la carte
 type Props = {
@@ -27,6 +28,7 @@ const AnnonceCard: React.FC<Props> = ({
   douches,
   surface,
 }) => {
+  const { lng } = useParams<{ lng: string }>();
   return (
     <div className="flex flex-col bg-white border border-gray-200 rounded-xl shadow-md overflow-hidden transition duration-300 hover:shadow-xl hover:scale-[1.015] h-full">
 
@@ -87,7 +89,7 @@ const AnnonceCard: React.FC<Props> = ({
 
         {/* Bouton Voir plus */}
         <Link
-          to={`/annonce/${id}`}
+          to={`/${lng}/annonce/${id}`}
           className="mt-4 inline-block w-full text-center bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-medium transition duration-300"
         >
           {t('annonceCard.btn')}
