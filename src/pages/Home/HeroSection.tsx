@@ -8,7 +8,7 @@ import 'swiper/swiper-bundle.css'
 // Import du mock d'annonces (tes données factices)
 import { AnnoncesMock } from '../../lib/mock'
 // Import Link pour naviguer vers la page détail sans recharger la page
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 // Import de l'image statique qui sera affichée sur la première slide
 import heroImage from '../../assets/img/hero.jpg'
 import { useTranslation } from 'react-i18next'
@@ -16,6 +16,7 @@ import { useTranslation } from 'react-i18next'
 
 const HeroSection: React.FC = () => {
   const {t}= useTranslation();
+  const { lng } = useParams<{ lng: string }>();
   return (
     // Conteneur principal du Hero, relatif pour positionner les enfants absolus
     <div className="relative h-[500px] w-full overflow-hidden">
@@ -40,7 +41,7 @@ const HeroSection: React.FC = () => {
         // Pagination cliquable : les petits points sous le slider sont interactifs
         pagination={{ clickable: true }}
 
-        // Ajoute les flèches de navigation à droite et gauche
+        // Ajout des flèches de navigation à droite et gauche
         navigation
 
         // Classes CSS pour dimensionner et positionner le slider
@@ -91,7 +92,7 @@ const HeroSection: React.FC = () => {
                 </p>
                 {/* Bouton cliquable qui emmène à la page détail de l’annonce */}
                 <Link
-                  to={`/annonce/${annonce.id}`}  // Navigation SPA (pas de reload)
+                  to={`/${lng}/annonce/${annonce.id}`}  // Navigation SPA (pas de reload)
                   className="bg-green-600 px-4 py-2 rounded-lg hover:bg-green-700 transition"
                 >
                   {t('heroSection.btn')}

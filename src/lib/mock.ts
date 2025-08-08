@@ -36,7 +36,7 @@ type Annonce = {
   description: string
 };
 
-// Tes annonces ici ⬇️
+// Les annonces ici 
 export const AnnoncesMock: Annonce[] = [
 
   {

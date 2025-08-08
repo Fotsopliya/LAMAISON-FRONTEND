@@ -16,10 +16,32 @@ const Inscription = () => {
     role: '',
   })
 
-  const handleForm = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    console.log('form submitted', form)
+  // const handleForm = (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault()
+  //   console.log('form submitted', form)
+  // }
+  const handleForm = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+
+  try {
+    const response = await fetch('http://localhost:5000/auth/signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(form),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      console.log('Inscription réussie', data);
+      // Rediriger vers la page de connexion ou dashboard
+    } else {
+      console.error('Erreur d’inscription', data.message);
+    }
+  } catch (error) {
+    console.error('Erreur réseau', error);
   }
+};
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target
