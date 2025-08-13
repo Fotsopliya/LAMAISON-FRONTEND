@@ -5,7 +5,7 @@ interface FormData {
   firstname: string
   email: string
   password: string
-  role: 'prospect' | 'agent' | ''
+  role: 'PROSPECT' | 'AGENT' | ''
 }
 
 const Inscription = () => {
@@ -27,21 +27,55 @@ const Inscription = () => {
     const response = await fetch('http://localhost:5000/auth/signup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(form),
+      body: JSON.stringify(form), // Assure-toi que `form` contient les bons champs (email, password, etc.)
     });
+
+    // const contentType = response.headers.get('content-type');
+    // const isJson = contentType?.includes('application/json');
+    // const data = isJson ? await response.json() : null;
 
     const data = await response.json();
 
     if (response.ok) {
-      console.log('Inscription réussie', data);
-      // Rediriger vers la page de connexion ou dashboard
+      console.log('✅ Inscription réussie', data);
+
+      // Exemple : redirection vers la page de connexion
+      // navigate('/login'); // si tu utilises react-router
     } else {
-      console.error('Erreur d’inscription', data.message);
+      const errorMessage = data?.message || 'Erreur inconnue côté serveur';
+      console.error('❌ Erreur d’inscription', errorMessage);
     }
-  } catch (error) {
-    console.error('Erreur réseau', error);
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      console.error('🚨 Erreur réseau', error.message);
+    } else {
+      console.error('🚨 Erreur réseau', error);
+    }
   }
 };
+
+//   const handleForm = async (e: React.FormEvent<HTMLFormElement>) => {
+//   e.preventDefault();
+
+//   try {
+//     const response = await fetch('http://localhost:5000/auth/signup', {
+//       method: 'POST',
+//       headers: { 'Content-Type': 'application/json' },
+//       body: JSON.stringify(form),
+//     });
+
+//     const data = await response.json();
+
+//     if (response.ok) {
+//       console.log('Inscription réussie', data);
+//       // Rediriger vers la page de connexion ou dashboard
+//     } else {
+//       console.error('Erreur d’inscription', data.message);
+//     }
+//   } catch (error) {
+//     console.error('Erreur réseau', error);
+//   }
+// };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target
@@ -117,8 +151,8 @@ const Inscription = () => {
             className="w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition"
           >
             <option value="">{t('inscription.choisirR')}</option>
-            <option value="prospect">{t('inscription.prospect')}</option>
-            <option value="agent">{t('inscription.agent')}</option>
+            <option value="PROSPECT">{t('inscription.prospect')}</option>
+            <option value="AGENT">{t('inscription.agent')}</option>
           </select>
         </div>
 

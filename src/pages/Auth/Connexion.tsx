@@ -25,22 +25,62 @@ const Connexion = () => {
     const response = await fetch('http://localhost:5000/auth/signin', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(form),
+      body: JSON.stringify(form), // Assure-toi que `form` contient email et password
     });
 
-    const data = await response.json();
+    // const contentType = response.headers.get('content-type');
+    // const isJson = contentType?.includes('application/json');
+
+    // const data = isJson ? await response.json() : null;
+    
+        const data = await response.json();
 
     if (response.ok) {
-      console.log('Connexion réussie', data);
-      // Stocker le token si tu en reçois un
-      // Rediriger vers une page protégée
+      console.log('✅ Connexion réussie', data);
+
+      // Exemple : stockage du token
+      if (data?.token) {
+        localStorage.setItem('token', data.token);
+      }
+
+      // Exemple : redirection
+      // navigate('/dashboard'); // si tu utilises react-router
     } else {
-      console.error('Erreur de connexion', data.message);
+      const errorMessage = data?.message || 'Erreur inconnue côté serveur';
+      console.error('❌ Erreur de connexion', errorMessage);
     }
-  } catch (error) {
-    console.error('Erreur réseau', error);
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      console.error('🚨 Erreur réseau', error.message);
+    } else {
+      console.error('🚨 Erreur réseau', error);
+    }
   }
 };
+
+//     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+//   e.preventDefault();
+
+//   try {
+//     const response = await fetch('http://localhost:5000/auth/signin', {
+//       method: 'POST',
+//       headers: { 'Content-Type': 'application/json' },
+//       body: JSON.stringify(form),
+//     });
+
+//     const data = await response.json();
+
+//     if (response.ok) {
+//       console.log('Connexion réussie', data);
+//       // Stocker le token si tu en reçois un
+//       // Rediriger vers une page protégée
+//     } else {
+//       console.error('Erreur de connexion', data.message);
+//     }
+//   } catch (error) {
+//     console.error('Erreur réseau', error);
+//   }
+// };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target
