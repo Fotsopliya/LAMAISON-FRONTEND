@@ -13,7 +13,7 @@ import m11 from '../assets/img/M11.jpg'
 import m12 from '../assets/img/M12.jpg'
 
 type Proprietaire = {
-  type: "agent" | "prospect";
+  type: "AGENT" | "PROSPECT";
   nom: string;
   tel: string;
   email: string;
@@ -52,7 +52,7 @@ export const AnnoncesMock: Annonce[] = [
     surface: 70,
     description: "Dans une barrière sécurisée. Caractéristiques : cuisine, douche, compteur prépayé, chambre.",
     proprietaire: {
-      type: "agent",
+      type: "AGENT",
       nom: "Jean Mbarga",
       tel: "+237 690000001",
       email: "contact@doualaimmo.com",
@@ -74,7 +74,7 @@ export const AnnoncesMock: Annonce[] = [
     surface: 200,
     description: "Dans une barrière sécurisée. Caractéristiques : cuisine, douche, compteur prépayé, chambre.",
     proprietaire: {
-      type: "agent",
+      type: "AGENT",
       nom: "Alice Kamga",
       tel: "+237 690000002",
       email: "contact@doualaimmo.com",
@@ -96,7 +96,7 @@ export const AnnoncesMock: Annonce[] = [
     surface: 30,
     description: "Dans une barrière sécurisée. Caractéristiques : cuisine, douche, compteur prépayé, chambre.",
     proprietaire: {
-      type: "prospect",
+      type: "PROSPECT",
       nom: "Pauline Tchoumi",
       tel: "+237 690000003",
       email: "jeanmvondo@gmail.com",
@@ -117,7 +117,7 @@ export const AnnoncesMock: Annonce[] = [
     surface: 120,
     description: "Dans une barrière sécurisée. Caractéristiques : cuisine, douche, compteur prépayé, chambre.",
     proprietaire: {
-      type: "prospect",
+      type: "PROSPECT",
       nom: "Brice Etoa",
       tel: "+237 690000004",
       email: "jeanmvondo@gmail.com",
@@ -138,7 +138,7 @@ export const AnnoncesMock: Annonce[] = [
     surface: 60,
     description: "Dans une barrière sécurisée. Caractéristiques : cuisine, douche, compteur prépayé, chambre.",
     proprietaire: {
-      type: "prospect",
+      type: "PROSPECT",
       nom: "Diane Njoya",
       tel: "+237 690000005",
       email: "jeanmvondo@gmail.com",
@@ -160,7 +160,7 @@ export const AnnoncesMock: Annonce[] = [
     surface: 250,
     description: "Dans une barrière sécurisée. Caractéristiques : cuisine, douche, compteur prépayé, chambre.",
     proprietaire: {
-      type: "agent",
+      type: "AGENT",
       nom: "Eric Nlend",
       tel: "+237 690000006",
       email: "contact@doualaimmo.com",
@@ -182,7 +182,7 @@ export const AnnoncesMock: Annonce[] = [
     surface: 210,
     description: "Dans une barrière sécurisée. Caractéristiques : cuisine, douche, compteur prépayé, chambre.",
     proprietaire: {
-      type: "agent",
+      type: "AGENT",
       nom: "Laura Ndinga",
       tel: "+237 690000007",
       email: "contact@doualaimmo.com",
@@ -204,7 +204,7 @@ export const AnnoncesMock: Annonce[] = [
     surface: 190,
     description: "Dans une barrière sécurisée. Caractéristiques : cuisine, douche, compteur prépayé, chambre.",
     proprietaire: {
-      type: "agent",
+      type: "AGENT",
       nom: "Gaston Mvondo",
       tel: "+237 690000008",
       email: "contact@doualaimmo.com",
@@ -228,7 +228,7 @@ export const AnnoncesMock: Annonce[] = [
     surface: 240,
     description: "Dans une barrière sécurisée. Caractéristiques : cuisine, douche, compteur prépayé, chambre.",
     proprietaire: {
-      type: "prospect",
+      type: "PROSPECT",
       nom: "Céline Fopa",
       tel: "+237 690000009",
       email: "jeanmvondo@gmail.com",
@@ -249,7 +249,7 @@ export const AnnoncesMock: Annonce[] = [
     surface: 75,
     description: "Dans une barrière sécurisée. Caractéristiques : cuisine, douche, compteur prépayé, chambre.",
     proprietaire: {
-      type: "prospect",
+      type: "PROSPECT",
       nom: "Arnaud Nguem",
       tel: "+237 690000010",
       email: "jeanmvondo@gmail.com",
@@ -270,7 +270,7 @@ export const AnnoncesMock: Annonce[] = [
     surface: 180,
     description: "Dans une barrière sécurisée. Caractéristiques : cuisine, douche, compteur prépayé, chambre.",
     proprietaire: {
-      type: "agent",
+      type: "AGENT",
       nom: "Nathalie Koumba",
       tel: "+237 690000011",
       email: "contact@doualaimmo.com",
@@ -292,7 +292,7 @@ export const AnnoncesMock: Annonce[] = [
     surface: 28,
     description: "Dans une barrière sécurisée. Caractéristiques : cuisine, douche, compteur prépayé, chambre.",
     proprietaire: {
-      type: "agent",
+      type: "AGENT",
       nom: "Yvan Biya",
       tel: "+237 690000012",
       email: "contact@doualaimmo.com",
@@ -301,5 +301,3 @@ export const AnnoncesMock: Annonce[] = [
     }
   },
 ]
-
-

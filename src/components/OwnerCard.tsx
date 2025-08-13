@@ -6,7 +6,7 @@ interface OwnerCardProps {
   nom: string
   tel: string
   email?: string
-  type: 'agent' | 'prospect'
+  type: 'AGENT' | 'PROSPECT'
   // avatar?: string
   // agence?: string
   onPrendre?: () => void
@@ -27,7 +27,7 @@ const OwnerCard: React.FC<OwnerCardProps> = ({
 
 }) => {
   const badgeColor =
-    type === 'agent' ? 'bg-blue-100 text-blue-800' : 'bg-yellow-100 text-yellow-800'
+    type === 'AGENT' ? 'bg-blue-100 text-blue-800' : 'bg-yellow-100 text-yellow-800'
 
   return (
     <div className="bg-white border rounded-xl shadow-md p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-6 hover:shadow-lg transition duration-300">
@@ -45,7 +45,7 @@ const OwnerCard: React.FC<OwnerCardProps> = ({
           <span
             className={`inline-block px-2 py-1 mt-1 rounded-full text-xs font-medium ${badgeColor}`}
           >
-            {type === 'agent' ? 'Agent immobilier' : 'Propriétaire particulier'}
+            {type === 'AGENT' ? 'Agent immobilier' : 'Propriétaire particulier'}
           </span>
 
           {/* {agence && (
