@@ -9,6 +9,13 @@ import { FaBed, FaRulerCombined, FaShower } from 'react-icons/fa'
 import { t } from 'i18next'
 import DateSejourPicker, { type DatesSejour } from '../../components/DateSejourPicker'
 
+interface Proprietaire {
+  nom: string;
+  tel: string;
+  email: string;
+  type: 'AGENT' | 'PROSPECT';
+}
+
 const AnnonceDetail: React.FC = () => {
   const { id } = useParams()
   const a = AnnoncesMock.find((annonce) => annonce.id === Number(id))
@@ -32,7 +39,7 @@ const AnnonceDetail: React.FC = () => {
     )
   }
 
-  const proprietaire = a.proprietaire
+  const proprietaire: Proprietaire = a.proprietaire
   if (!proprietaire) {
     return (
       <div className="mt-24 px-4">
@@ -270,4 +277,3 @@ export default AnnonceDetail
 // }
 
 // export default AnnonceDetail
-
