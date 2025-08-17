@@ -129,7 +129,7 @@ const Connexion = () => {
                 </button>
                 <p className="text-sm text-center text-gray-600">
                     {t('connexion.pasCompte')}{" "}
-                    <Link to={`/${lng}/inscription`} className="text-green-600 hover:underline font-semibold">
+                    <Link to={`/${lng}/signup`} className="text-green-600 hover:underline font-semibold">
                         {t('connexion.clique')}
                     </Link>
                 </p>

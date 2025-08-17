@@ -27,11 +27,11 @@ const Navbar: React.FC = () => {
           {/* Menu desktop */}
 
           <nav className="hidden md:flex space-x-6 text-sm items-center">
-            <Link to={`/${lng}/accueil`}>{t('navbar.acc')}</Link>
-            <Link to={`/${lng}/annonces`}>{t('navbar.ann')}</Link>
-            <Link to={`/${lng}/à propos`}>{t('navbar.aprop')}</Link>
+            <Link to={`/${lng}/home`}>{t('navbar.acc')}</Link>
+            <Link to={`/${lng}/posts`}>{t('navbar.ann')}</Link>
+            <Link to={`/${lng}/about`}>{t('navbar.aprop')}</Link>
             <Link to={`/${lng}/contact`}>{t('navbar.cont')}</Link>
-            <Link to={`/${lng}/connexion`} className="text-xl">
+            <Link to={`/${lng}/login`} className="text-xl">
               <FaUserCircle />
             </Link>
           </nav>
@@ -46,11 +46,11 @@ const Navbar: React.FC = () => {
 
       {menuOpen && (
         <div className="md:hidden px-6 pb-4 pt-2 space-y-3 bg-green-600 text-sm">
-          <Link to={`/${lng}/accueil`} className="block">{t('navbar.acc')}</Link>
-          <Link to={`/${lng}/annonces`} className="block">{t('navbar.ann')}</Link>
-          <Link to={`/${lng}/à propos`} className="block">{t('navbar.aprop')}</Link>
+          <Link to={`/${lng}/home`} className="block">{t('navbar.acc')}</Link>
+          <Link to={`/${lng}/posts`} className="block">{t('navbar.ann')}</Link>
+          <Link to={`/${lng}/about`} className="block">{t('navbar.aprop')}</Link>
           <Link to={`/${lng}/contact`} className="block">{t('navbar.cont')}</Link>
-          <Link to={`/${lng}/connexion`} className="block">{t('navbar.connex')}</Link>
+          <Link to={`/${lng}/login`} className="block">{t('navbar.connex')}</Link>
         </div>
       )}
 

@@ -92,7 +92,7 @@ const HeroSection: React.FC = () => {
                 </p>
                 {/* Bouton cliquable qui emmène à la page détail de l’annonce */}
                 <Link
-                  to={`/${lng}/annonce/${annonce.id}`}  // Navigation SPA (pas de reload)
+                  to={`/${lng}/post/${annonce.id}`}  // Navigation SPA (pas de reload)
                   className="bg-green-600 px-4 py-2 rounded-lg hover:bg-green-700 transition"
                 >
                   {t('heroSection.btn')}

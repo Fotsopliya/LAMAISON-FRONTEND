@@ -89,7 +89,7 @@ const AnnonceCard: React.FC<Props> = ({
 
         {/* Bouton Voir plus */}
         <Link
-          to={`/${lng}/annonce/${id}`}
+          to={`/${lng}/post/${id}`}
           className="mt-4 inline-block w-full text-center bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-medium transition duration-300"
         >
           {t('annonceCard.btn')}
