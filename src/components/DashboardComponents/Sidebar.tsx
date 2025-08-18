@@ -1,28 +1,30 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { Menu, X, Home, FilePlus, List, User, Heart } from "lucide-react";
+import { Menu, X, Home, FilePlus, List, User, Heart, MessageCircleIcon } from "lucide-react";
 
 const Sidebar = () => {
   const [open, setOpen] = useState(false);
 
   // Rôle simulé depuis localStorage ( à remplacer avec AuthContext plus tard)
   const role = location.pathname.includes("prospect") ? "PROSPECT" : "AGENT";
-  
+
   const links =
     role === "AGENT"
       ? [
-          { path: "/dashboard/agent", label: "Tableau de bord", icon: <Home size={18} /> },
-          { path: "/dashboard/agent/annonces", label: "Mes annonces", icon: <List size={18} /> },
-          { path: "/dashboard/agent/annonces/new", label: "Publier une annonce", icon: <FilePlus size={18} /> },
-          { path: "/dashboard/agent/profile", label: "Profil", icon: <User size={18} /> },
-        ]
+        { path: "/dashboard/agent", label: "Tableau de bord", icon: <Home size={18} /> },
+        { path: "/dashboard/agent/annonces", label: "Mes annonces", icon: <List size={18} /> },
+        { path: "/dashboard/agent/annonces/new", label: "Publier une annonce", icon: <FilePlus size={18} /> },
+        { name: "Messagerie", path: "/dashboard/messages", label: "Messagerie", icon: <MessageCircleIcon size={18} /> },
+        { path: "/dashboard/agent/profile", label: "Profil", icon: <User size={18} /> },
+      ]
       : [
-          { path: "/dashboard/prospect", label: "Tableau de bord", icon: <Home size={18} /> },
-          { path: "/dashboard/prospect/annonces", label: "Mes annonces", icon: <List size={18} /> },
-          { path: "/dashboard/prospect/annonces/new", label: "Publier une annonce", icon: <FilePlus size={18} /> },
-          { path: "/dashboard/prospect/favoris", label: "Mes favoris", icon: <Heart size={18} /> },
-          { path: "/dashboard/prospect/profile", label: "Profil", icon: <User size={18} /> },
-        ];
+        { path: "/dashboard/prospect", label: "Tableau de bord", icon: <Home size={18} /> },
+        { path: "/dashboard/prospect/annonces", label: "Mes annonces", icon: <List size={18} /> },
+        { path: "/dashboard/prospect/annonces/new", label: "Publier une annonce", icon: <FilePlus size={18} /> },
+        { path: "/dashboard/prospect/favoris", label: "Mes favoris", icon: <Heart size={18} /> },
+        { name: "Messagerie", path: "/dashboard/messages", label: "Messagerie", icon: <MessageCircleIcon size={18} /> },
+        { path: "/dashboard/prospect/profile", label: "Profil", icon: <User size={18} /> },
+      ];
 
   return (
     <>
@@ -36,9 +38,8 @@ const Sidebar = () => {
 
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 h-full w-64 bg-green-700 text-white p-6 transform ${
-          open ? "translate-x-0" : "-translate-x-full"
-        } transition-transform duration-300 lg:translate-x-0 lg:static z-40`}
+        className={`fixed top-0 left-0 h-full w-64 bg-green-700 text-white p-6 transform ${open ? "translate-x-0" : "-translate-x-full"
+          } transition-transform duration-300 lg:translate-x-0 lg:static z-40`}
       >
         <h2 className="text-2xl font-bold mb-6">Dashboard {role}</h2>
         <nav className="space-y-2">

@@ -27,6 +27,7 @@ import DashboardProspect from './pages/Dashboard/Home/DashboardProspect';
 import AnnonceForm from '../src/components/DashboardComponents/AnnonceForm';
 import AnnonceList from '../src/components/DashboardComponents/AnnonceList';
 import Profile from './pages/Dashboard/Profile/Profile';
+import MessagesLayout from './layouts/MessagesLayout';
 // import DashboardProfile from '../src/components/DashboardComponents/DashboardProfile';
 
 function LocaleWrapper() {
@@ -34,10 +35,10 @@ function LocaleWrapper() {
   const { lng } = useParams<{ lng: string }>(); // Langue récupérée depuis l’URL
   const location = useLocation(); // Pour rediriger ou récupérer le chemin actuel
   const [ready, setReady] = useState(false); // Permet de bloquer le rendu tant que la langue n’est pas chargée
- 
+
 
   useEffect(() => {
-   // Si la langue est invalide, on ne fait rien
+    // Si la langue est invalide, on ne fait rien
     if (!lng || !['fr', 'en'].includes(lng)) return;
     const handleInit = () => setReady(true);
 
@@ -68,8 +69,8 @@ function LocaleWrapper() {
   return (
     <>
       {/*Routes publiques avec Layout global */}
-        <Routes>
-          <Route element={<Layout />}>
+      <Routes>
+        <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/posts" element={<Annonces />} />
@@ -81,9 +82,9 @@ function LocaleWrapper() {
           <Route path="/cgu" element={<CGU />} />
           <Route path="/legal-notice" element={<MentionsLegales />} />
           <Route path="/confidentiality" element={<Confidentialite />} />
-          </Route>
-        </Routes>
-      
+        </Route>
+      </Routes>
+
 
       {/*Routes privées Dashboard */}
       <Routes>
@@ -93,7 +94,7 @@ function LocaleWrapper() {
             <Route index element={<DashboardAgent />} />
             <Route path="home" element={<DashboardAgent />} />
             <Route path="annonces" element={<AnnonceList />} />
-            <Route path="annonces/new" element={<AnnonceForm/>} />
+            <Route path="annonces/new" element={<AnnonceForm />} />
             <Route path="profile" element={<Profile />} />
           </Route>
 
@@ -101,10 +102,13 @@ function LocaleWrapper() {
           <Route path="prospect">
             <Route index element={<DashboardProspect />} />
             <Route path="home" element={<DashboardProspect />} />
-            <Route path="annonces" element={<AnnonceList  />} />
-            <Route path="annonces/new" element={<AnnonceForm/>} />
+            <Route path="annonces" element={<AnnonceList />} />
+            <Route path="annonces/new" element={<AnnonceForm />} />
             <Route path="profile" element={<Profile />} />
           </Route>
+          {/* Messagerie */}
+          <Route path="/dashboard/messages" element={<MessagesLayout />} />
+          <Route path="/dashboard/messages/:id" element={<MessagesLayout />} />
         </Route>
       </Routes>
     </>
