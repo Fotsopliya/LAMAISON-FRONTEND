@@ -1,51 +1,94 @@
 // src/pages/Dashboard/Profile/Profile.tsx
 import { useState, useEffect } from "react";
 
+//  Définition du type UserProfile pour typer les données utilisateur
 type UserProfile = {
   firstname: string;
   email: string;
   phone?: string;
   role: "AGENT" | "PROSPECT";
+  avatar?: string; // URL ou base64
 };
 
 const Profile = () => {
+  // État initial simulé (mock) de l'utilisateur
   const [user, setUser] = useState<UserProfile>({
     firstname: "Jean Dupont",
     email: "jean.dupont@example.com",
     phone: "670000000",
     // role: (localStorage.getItem("role") as "AGENT" | "PROSPECT") || "PROSPECT",
-     role: location.pathname.includes("prospect") ? "PROSPECT" : "AGENT"
-
+    role: location.pathname.includes("prospect") ? "PROSPECT" : "AGENT",
+    avatar: "",
   });
 
+  //  État du formulaire, initialisé avec les données utilisateur
   const [formData, setFormData] = useState(user);
 
+  // État pour l’aperçu de l’avatar (base64 ou URL)
+  const [preview, setPreview] = useState<string | null>(null);
+
   useEffect(() => {
-    // ⚡ Ici tu feras un fetch vers ton backend pour récupérer les vraies infos
+    // Ici tu feras un fetch vers ton backend pour récupérer les vraies infos
+    // Synchronisation des états formData et preview avec les données utilisateur
     setFormData(user);
+    setPreview(user.avatar || null);
   }, [user]);
 
+  //  Gestion des changements dans les champs texte du formulaire
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  //  Gestion du changement d’avatar (image uploadée)
+  const handleAvatarChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPreview(reader.result as string); // preview base64
+        setFormData({ ...formData, avatar: reader.result as string });
+      };
+      reader.readAsDataURL(file); //  Conversion du fichier en base64
+    }
+  };
+
+  //  Soumission du formulaire
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Profil mis à jour :", formData);
     alert("Profil mis à jour avec succès !");
-    setUser(formData);
+    setUser(formData); // Mise à jour locale (mock)
   };
 
   return (
     <div className="p-6 max-w-4xl mx-auto">
       {/* En-tête */}
       <div className="flex flex-col sm:flex-row items-center gap-6 mb-8">
-        {/* Avatar mock */}
-        <div className="h-24 w-24 rounded-full bg-green-600 text-white flex items-center justify-center text-3xl font-bold">
-          {user.firstname[0]}
+        {/* Avatar */}
+        <div className="relative">
+          {preview ? (
+            //  Affichage de l’avatar si disponible
+            <img
+              src={preview}
+              alt="avatar"
+              className="h-24 w-24 rounded-full object-cover border-2 border-green-600"
+            />
+          ) : (
+            // Avatar mock
+            <div className="h-24 w-24 rounded-full bg-green-600 text-white flex items-center justify-center text-3xl font-bold">
+              {user.firstname[0]} {/* ✅ Première lettre du prénom */}
+            </div>
+          )}
+          {/* Input caché pour uploader une image */}
+          <label className="absolute bottom-0 right-0 bg-white border rounded-full p-1 cursor-pointer hover:bg-gray-100">
+            <input type="file" className="hidden" accept="image/*" onChange={handleAvatarChange} />
+            <span className="text-xs text-green-600 font-semibold">📷</span>
+          </label>
         </div>
+
+        {/* Infos utilisateur */}
         <div>
           <h1 className="text-2xl font-bold">
             {user.firstname}
