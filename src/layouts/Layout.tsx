@@ -1,8 +1,6 @@
-import React, { useContext} from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import { AuthContext } from '../context/AuthContext'
-import { Navigate, Outlet } from 'react-router-dom'
+import  {Outlet}  from 'react-router-dom'
 
 // Déclare le type des propriétés (props) attendues par Layout
 // Ici, 'children' est le contenu dynamique qu'on va afficher entre Navbar et Footer
@@ -29,19 +27,5 @@ const Layout: React.FC = () => {
     )
 }
 
-const RequireAuth: React.FC = () => {
-    const { user }: any = useContext(AuthContext)
-    if (!user) return <Navigate to="/login" />
-    return (
-        <>
 
-
-            <main className='flex-grow'>
-                <Outlet />
-            </main>
-
-        </>
-    )
-}
-
-export { Layout, RequireAuth }
+export default Layout

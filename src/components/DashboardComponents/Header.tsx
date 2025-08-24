@@ -1,13 +1,19 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
-import logo from "../../assets/logo.jpg";
+import { Link, useParams } from "react-router-dom";
 
-const Header = () => {
+const Header =  ({
+  // sidebarOpen,
+  // setSidebarOpen,
+}: {
+  sidebarOpen: boolean;
+  setSidebarOpen: (val: boolean) => void;
+})=> {
   const [open, setOpen] = useState(false);
 
   // Exemple : rôle stocké dans localStorage après login
   // const role = localStorage.getItem("role") || "PROSPECT";
+  const { lng } = useParams<{ lng: string }>();
     const role = location.pathname.includes("prospect") ? "PROSPECT" : "AGENT";
 
 
@@ -16,21 +22,14 @@ const Header = () => {
     role === "AGENT"
       ? [
           { path: "/dashboard/agent/profile", label: "Mon profil" },
-          { path: "/dashboard/agent/annonces", label: "Mes annonces" },
-          { path: "/dashboard/agent/annonces/new", label: "Publier une annonce" },
-          { path: "/settings", label: "Paramètres" },
         ]
       : [
           { path: "/dashboard/prospect/profile", label: "Mon profil" },
-          { path: "/dashboard/prospect/annonces", label: "Mes annonces" },
-          { path: "/dashboard/prospect/favoris", label: "Mes favoris" },
-          { path: "/settings", label: "Paramètres" },
         ];
 
   return (
-    <header className="bg-white shadow px-6 py-3 flex justify-between items-center">
-      {/* Logo */}
-      <img src={logo} alt="logo" className="h-10 w-auto" />
+    <header className="bg-white shadow px-6 py-3 flex justify-end items-center">
+      
 
       {/* Menu Mon Compte */}
       <div className="relative">
@@ -64,7 +63,7 @@ const Header = () => {
             <button
               onClick={() => {
                 localStorage.clear();
-                window.location.href = "/login";
+                window.location.href = `/${lng}/login`
               }}
               className="w-full text-left px-4 py-3 text-red-600 hover:bg-gray-100"
             >
@@ -78,64 +77,3 @@ const Header = () => {
 };
 
 export default Header;
-
-
-
-
-// import logo from "../../assets/logo.jpg";
-// import { User } from "lucide-react";
-
-// const Header = () => {
-//   return (
-//     <header className="bg-white shadow px-6 py-4 flex justify-between items-center sticky top-0 z-30">
-//       {/* Logo */}
-//       <div className="flex items-center gap-2">
-//         <img src={logo} alt="logo" className="h-10 w-auto rounded" />
-//       </div>
-
-//       {/* Actions utilisateur */}
-//       <div className="flex items-center gap-4">
-//         <button className="flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-md hover:bg-gray-200 transition">
-//           <User size={18} /> Mon compte
-//         </button>
-//         <button
-//           className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition"
-//           onClick={() => {
-//             localStorage.clear();
-//             window.location.href = "/login";
-//           }}
-//         >
-//           Déconnexion
-//         </button>
-//       </div>
-//     </header>
-//   );
-// };
-
-// export default Header;
-
-
-
-
-// // src/components/DashboardComponents/Header.tsx
-// import logo from '../../assets/logo.jpg'
-// const Header = () => {
-//   return (
-//     <header className="bg-white shadow p-4 flex justify-between items-center">
-//      <img src={logo} alt="logo" className="w-auto h-10"/>
-//       <div className="flex items-center gap-4">
-//         <button
-//           className="bg-red-500 text-white px-3 py-1 rounded"
-//           onClick={() => {
-//             localStorage.clear();
-//             window.location.href = "/login";
-//           }}
-//         >
-//           Déconnexion
-//         </button>
-//       </div>
-//     </header>
-//   );
-// };
-
-// export default Header;
