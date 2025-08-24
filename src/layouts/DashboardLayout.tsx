@@ -1,16 +1,25 @@
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet, useParams } from "react-router-dom";
 import Sidebar from "../components/DashboardComponents/Sidebar";
 import Header from "../components/DashboardComponents/Header";
+import { useState,useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
+
 
 const DashboardLayout = () => {
+  const [sidebarOpen, setSidebarOpen] = useState(true);
+
+  const { lng } = useParams<{ lng: string }>();
+
+  const { user }: any = useContext(AuthContext)
+  if (!user) return <Navigate to={`/${lng}/login`} />
   return (
     <div className="flex h-screen bg-gray-100">
       {/* Sidebar */}
-      <Sidebar />
+      <Sidebar open={sidebarOpen} setOpen={setSidebarOpen} />
 
       {/* Contenu principal */}
       <div className="flex flex-col flex-1">
-        <Header />
+        <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen}/>
         <main className="flex-1 overflow-y-auto p-6">
           <Outlet /> {/* Ici s'affichent les pages (dashboard, annonces, etc.) */}
         </main>

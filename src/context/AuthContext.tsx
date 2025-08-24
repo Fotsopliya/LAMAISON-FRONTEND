@@ -4,24 +4,29 @@ import { createContext, useEffect, useState, type ReactNode } from "react";
 type PageProps = {
     children: ReactNode 
 
-
 }
-export const AuthContext=createContext({})
-
+type AuthContextProps={
+    user: any,
+    updateUser: (data: any) => void
+}
+export const AuthContext=createContext<AuthContextProps>({
+    user: {},
+    updateUser: () => {}
+})
 export const AuthContextProvider= ({children}: PageProps) => {
 
     const[user,setUser]= useState(
         JSON.parse(localStorage.getItem("user")?.toString() ?? "{}") || null
     )
 
-    const UpdateUser = (data: any) => {
+    const updateUser = (data: any) => {
         setUser(data)
     }
     useEffect(() => {
         localStorage.setItem("user", JSON.stringify(user))
     }, [user])
     return(
-        <AuthContext.Provider value={{user,UpdateUser}}>
+        <AuthContext.Provider value={{user,updateUser}}>
             {children}
         </AuthContext.Provider>
     )

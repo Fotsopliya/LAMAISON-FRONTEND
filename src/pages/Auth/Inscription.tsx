@@ -1,5 +1,6 @@
 import { t } from 'i18next'
 import React, { useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 
 interface FormData {
   firstname: string
@@ -15,67 +16,70 @@ const Inscription = () => {
     password: '',
     role: '',
   })
-
+ const { lng } = useParams<{ lng: string }>();
+    const navigate = useNavigate();
   // const handleForm = (e: React.FormEvent<HTMLFormElement>) => {
   //   e.preventDefault()
   //   console.log('form submitted', form)
   // }
   const handleForm = async (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
+    e.preventDefault();
+   
 
-  try {
-    const response = await fetch('http://localhost:5000/auth/signup', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(form), // Assure-toi que `form` contient les bons champs (email, password, etc.)
-    });
+    try {
+      const response = await fetch('http://localhost:5000/auth/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form), // Assure-toi que `form` contient les bons champs (email, password, etc.)
+      });
 
-    // const contentType = response.headers.get('content-type');
-    // const isJson = contentType?.includes('application/json');
-    // const data = isJson ? await response.json() : null;
+      // const contentType = response.headers.get('content-type');
+      // const isJson = contentType?.includes('application/json');
+      // const data = isJson ? await response.json() : null;
 
-    const data = await response.json();
+      const data = await response.json();
 
-    if (response.ok) {
-      console.log('✅ Inscription réussie', data);
+      if (response.ok) {
+        console.log('✅ Inscription réussie', data);
+        navigate(`/${lng}/login`);
 
-      // Exemple : redirection vers la page de connexion
-      // navigate('/login'); // si tu utilises react-router
-    } else {
-      const errorMessage = data?.message || 'Erreur inconnue côté serveur';
-      console.error('❌ Erreur d’inscription', errorMessage);
+        // Exemple : redirection vers la page de connexion
+        // navigate('/login'); // si tu utilises react-router
+      } else {
+        const errorMessage = data?.message || 'Erreur inconnue côté serveur';
+        console.error('❌ Erreur d’inscription', errorMessage);
+      }
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        console.error('🚨 Erreur réseau', error.message);
+      } else {
+        console.error('🚨 Erreur réseau', error);
+      }
     }
-  } catch (error: unknown) {
-    if (error instanceof Error) {
-      console.error('🚨 Erreur réseau', error.message);
-    } else {
-      console.error('🚨 Erreur réseau', error);
-    }
-  }
-};
+  };
 
-//   const handleForm = async (e: React.FormEvent<HTMLFormElement>) => {
-//   e.preventDefault();
+  //   const handleForm = async (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
 
-//   try {
-//     const response = await fetch('http://localhost:5000/auth/signup', {
-//       method: 'POST',
-//       headers: { 'Content-Type': 'application/json' },
-//       body: JSON.stringify(form),
-//     });
+  //   try {
+  //     const response = await fetch('http://localhost:5000/auth/signup', {
+  //       method: 'POST',
+  //       headers: { 'Content-Type': 'application/json' },
+  //       body: JSON.stringify(form),
+  //     });
 
-//     const data = await response.json();
+  //     const data = await response.json();
 
-//     if (response.ok) {
-//       console.log('Inscription réussie', data);
-//       // Rediriger vers la page de connexion ou dashboard
-//     } else {
-//       console.error('Erreur d’inscription', data.message);
-//     }
-//   } catch (error) {
-//     console.error('Erreur réseau', error);
-//   }
-// };
+  //     if (response.ok) {
+  //       console.log('Inscription réussie', data);
+  //       // Rediriger vers la page de connexion ou dashboard
+  //     } else {
+  //       console.error('Erreur d’inscription', data.message);
+  //     }
+  //   } catch (error) {
+  //     console.error('Erreur réseau', error);
+  //   }
+  // };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target
@@ -92,7 +96,7 @@ const Inscription = () => {
       <form onSubmit={handleForm} className="bg-white shadow-lg rounded-2xl px-8 py-10 space-y-6">
         <div>
           <label htmlFor="firstname" className="block text-sm font-medium text-gray-700 mb-1">
-             {t('rdvModal.prenom')}
+            {t('rdvModal.prenom')}
           </label>
           <input
             type="text"
@@ -117,7 +121,7 @@ const Inscription = () => {
             value={form.email}
             onChange={handleChange}
             required
-            placeholder= {t('inscription.entrEmail')}
+            placeholder={t('inscription.entrEmail')}
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition"
           />
         </div>
