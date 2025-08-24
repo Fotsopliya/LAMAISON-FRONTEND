@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { Menu, X, Home, FilePlus, List, User, Heart, MessageCircleIcon } from "lucide-react";
+import { Menu, X, Home, FilePlus, List, User, Heart, MessageCircleIcon, Calendar } from "lucide-react";
 
 const Sidebar = () => {
   const [open, setOpen] = useState(false);
@@ -14,7 +14,8 @@ const Sidebar = () => {
         { path: "/dashboard/agent", label: "Tableau de bord", icon: <Home size={18} /> },
         { path: "/dashboard/agent/annonces", label: "Mes annonces", icon: <List size={18} /> },
         { path: "/dashboard/agent/annonces/new", label: "Publier une annonce", icon: <FilePlus size={18} /> },
-        { name: "Messagerie", path: "/dashboard/messages", label: "Messagerie", icon: <MessageCircleIcon size={18} /> },
+        { path: "/dashboard/messages", label: "Messagerie", icon: <MessageCircleIcon size={18} /> },
+        { path: "/dashboard/rdv", label: "Rendez-vous", icon: <Calendar size={18} /> },
         { path: "/dashboard/agent/profile", label: "Profil", icon: <User size={18} /> },
       ]
       : [
@@ -22,7 +23,8 @@ const Sidebar = () => {
         { path: "/dashboard/prospect/annonces", label: "Mes annonces", icon: <List size={18} /> },
         { path: "/dashboard/prospect/annonces/new", label: "Publier une annonce", icon: <FilePlus size={18} /> },
         { path: "/dashboard/prospect/favoris", label: "Mes favoris", icon: <Heart size={18} /> },
-        { name: "Messagerie", path: "/dashboard/messages", label: "Messagerie", icon: <MessageCircleIcon size={18} /> },
+        { path: "/dashboard/messages", label: "Messagerie", icon: <MessageCircleIcon size={18} /> },
+        { path: "/dashboard/rdv", label: "Rendez-vous", icon: <Calendar size={18} /> },
         { path: "/dashboard/prospect/profile", label: "Profil", icon: <User size={18} /> },
       ];
 
@@ -33,7 +35,8 @@ const Sidebar = () => {
         className="lg:hidden p-3 fixed top-4 left-4 z-50 bg-green-600 text-white rounded-md shadow-md"
         onClick={() => setOpen(!open)}
       >
-        {open ? <X size={24} /> : <Menu size={24} />}
+        {open ? <X size={12} /> : <Menu size={12} />}
+
       </button>
 
       {/* Sidebar */}
