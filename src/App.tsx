@@ -28,6 +28,9 @@ import AnnonceForm from '../src/components/DashboardComponents/AnnonceForm';
 import AnnonceList from '../src/components/DashboardComponents/AnnonceList';
 import Profile from './pages/Dashboard/Profile/Profile';
 import MessagesLayout from './layouts/MessagesLayout';
+import RdvLayout from './layouts/RdvLayout';
+import RdvProspect from './components/DashboardComponents/AppointmentComponents/RdvProspect';
+import RdvAgent from './components/DashboardComponents/AppointmentComponents/RdvAgent';
 // import DashboardProfile from '../src/components/DashboardComponents/DashboardProfile';
 
 function LocaleWrapper() {
@@ -109,6 +112,11 @@ function LocaleWrapper() {
           {/* Messagerie */}
           <Route path="/dashboard/messages" element={<MessagesLayout />} />
           <Route path="/dashboard/messages/:id" element={<MessagesLayout />} />
+          {/* RDV */}
+          <Route path="rdv" element={<RdvLayout />}>
+            <Route path="prospect" element={<RdvProspect />} />
+            <Route path="agent" element={<RdvAgent />} />
+          </Route>
         </Route>
       </Routes>
     </>
