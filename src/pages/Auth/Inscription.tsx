@@ -1,6 +1,6 @@
 import { t } from 'i18next'
 import React, { useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 
 interface FormData {
   firstname: string
@@ -16,15 +16,16 @@ const Inscription = () => {
     password: '',
     role: '',
   })
- const { lng } = useParams<{ lng: string }>();
-    const navigate = useNavigate();
+  const { lng } = useParams<{ lng: string }>();
+  const navigate = useNavigate();
+
   // const handleForm = (e: React.FormEvent<HTMLFormElement>) => {
   //   e.preventDefault()
   //   console.log('form submitted', form)
   // }
   const handleForm = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-   
+
 
     try {
       const response = await fetch('http://localhost:5000/auth/signup', {
@@ -166,6 +167,13 @@ const Inscription = () => {
         >
           {t('inscription.inscrire')}
         </button>
+        <p className="text-sm text-center text-gray-600">
+          {t('inscription.acompte')}{" "}
+          <Link to={`/${lng}/login`} className="text-green-600 hover:underline font-semibold">
+            {t('connexion.clique')}
+          </Link>
+        </p>
+
       </form>
     </div>
   )

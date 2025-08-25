@@ -73,7 +73,7 @@
         "heure": "Time",
         "msg": "Message (optional)",
         "envy": "Send request",
-        "sejour":"stay"
+        "sejour": "stay"
     },
     "apropos": {
         "title": "About LAMAISON",
@@ -101,7 +101,8 @@
         "Vmdp": "Your password",
         "seConn": "Sign in",
         "pasCompte": "Don't have an account ?",
-        "clique": "Click here"
+        "clique": "Click here",
+        "mdpOublie": "Password forgotten ?"
     },
     "inscription": {
         "cree": "Create an account",
@@ -112,7 +113,8 @@
         "choisirR": "-- Select your role --",
         "prospect": " Private individual (Buyer/Seller)",
         "agent": "Real estate agent(Professionnal)",
-        "inscrire": "Sign up"
+        "inscrire": "Sign up",
+        "acompte": "Already have an account?"
     },
     "footer": {
         "prosAgen": " Real estate platform connecting private individuals and professionals.",
@@ -151,10 +153,31 @@
     "logo": {
         "title": "back to homepage"
     },
-     "dateseJourPicker":{
-        "duree":"📆 Choose the date of stay",
-        "arrivee":"Arrival date",
-        "depart":"Departure date",
-         "selection":"Select a date"
+    "dateseJourPicker": {
+        "duree": "📆 Choose the date of stay",
+        "arrivee": "Arrival date",
+        "depart": "Departure date",
+        "selection": "Select a date"
+    },
+    "forgotPassword": {
+        "titre": "Forgot your password?",
+        "label": "Email address",
+        "placeholder": "Enter your email address",
+        "bouton": "Send reset link",
+        "succes": " If an account exists, an email has been sent",
+        "erreurReseau": " A network error occurred"
+    },
+    "resetPassword": {
+        "titre": "Reset your password",
+        "nouveau": "New password",
+        "confirm": "Confirm password",
+        "placeholder": "Enter a new password",
+        "placeholderConfirm": "Confirm your new password",
+        "bouton": "Reset",
+        "chargement": "Resetting...",
+        "succes": "Password successfully updated",
+        "erreurMismatch": " Passwords do not match",
+        "erreurServeur": "Server error",
+        "erreurReseau": " A network error occurred"
     }
 }

@@ -1,7 +1,7 @@
 // src/App.tsx
 import { Routes, Route, Navigate, useLocation, useParams } from 'react-router-dom';
 import './App.css';
-import  Layout  from './layouts/Layout';
+import Layout from './layouts/Layout';
 import DashboardLayout from './layouts/DashboardLayout';
 
 // Pages publiques
@@ -30,6 +30,8 @@ import Profile from './pages/Dashboard/Profile/Profile';
 import MessagesLayout from './layouts/MessagesLayout';
 import RdvProspect from './components/DashboardComponents/AppointmentComponents/RdvProspect';
 import RdvAgent from './components/DashboardComponents/AppointmentComponents/RdvAgent';
+import ForgotPassword from './pages/Auth/ForgotPassword';
+import ResetPassword from './pages/Auth/ResetPassword';
 // import DashboardProfile from '../src/components/DashboardComponents/DashboardProfile';
 
 function LocaleWrapper() {
@@ -85,6 +87,8 @@ function LocaleWrapper() {
           <Route path="/legal-notice" element={<MentionsLegales />} />
           <Route path="/confidentiality" element={<Confidentialite />} />
         </Route>
+         <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/reset-password/:token" element={<ResetPassword />} />
       </Routes>
 
 

@@ -15,7 +15,7 @@ const Connexion = () => {
   })
   const { lng } = useParams<{ lng: string }>();
 
-  const {updateUser} = useContext(AuthContext)
+  const { updateUser } = useContext(AuthContext)
   const navigate = useNavigate()
 
   // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -132,6 +132,15 @@ const Connexion = () => {
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition"
           />
         </div>
+        <div className="text-right">
+          <Link
+            to={`/${lng}/forgot-password`}
+            className="text-sm text-green-600 hover:underline font-medium"
+          >
+            {t('connexion.mdpOublie')}
+          </Link>
+        </div>
+
 
         <button
           type="submit"
