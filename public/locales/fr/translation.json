@@ -73,7 +73,7 @@
         "heure": "Heure",
         "msg": "Message (facultatif)",
         "envy": "Envoyer la demande",
-        "sejour":"séjour"
+        "sejour": "séjour"
     },
     "apropos": {
         "title": "À propos de LAMAISON",
@@ -101,7 +101,8 @@
         "Vmdp": "Votre mot de passe",
         "seConn": "Se connecter",
         "pasCompte": "Vous n'avez pas de compte ?",
-        "clique": "Cliquez ici"
+        "clique": "Cliquez ici",
+        "mdpOublie": "Mot de passe oublié ?"
     },
     "inscription": {
         "cree": "Créer un compte",
@@ -112,7 +113,8 @@
         "choisirR": "-- Sélectionnez votre rôle --",
         "prospect": "Particulier (Acheteur/Vendeur)",
         "agent": "Agent immobilier (Professionnel)",
-        "inscrire": "S’inscrire"
+        "inscrire": "S’inscrire",
+        "acompte": "Vous avez déjà un compte ?"
     },
     "footer": {
         "prosAgen": " Plateforme immobilière entre particuliers et professionnels.",
@@ -151,10 +153,31 @@
     "logo": {
         "title": "retour à la page d'accueil"
     },
-    "dateseJourPicker":{
-        "duree":"📆 Choisir la durée du séjour",
-        "arrivee":"Date d'arrivée",
-        "depart":"Date de départ",
-        "selection":"Sélectionner une date"
+    "dateseJourPicker": {
+        "duree": "📆 Choisir la durée du séjour",
+        "arrivee": "Date d'arrivée",
+        "depart": "Date de départ",
+        "selection": "Sélectionner une date"
+    },
+    "forgotPassword": {
+        "titre": "Mot de passe oublié",
+        "label": "Adresse email",
+        "placeholder": "Entrez votre adresse email",
+        "bouton": "Envoyer le lien de réinitialisation",
+        "succes": "Si un compte existe, un email a été envoyé",
+        "erreurReseau": "Une erreur réseau est survenue"
+    },
+    "resetPassword": {
+        "titre": "Réinitialiser votre mot de passe",
+        "nouveau": "Nouveau mot de passe",
+        "confirm": "Confirmer le mot de passe",
+        "placeholder": "Entrez un nouveau mot de passe",
+        "placeholderConfirm": "Confirmez le mot de passe",
+        "bouton": "Réinitialiser",
+        "chargement": "Réinitialisation en cours...",
+        "succes": " Mot de passe mis à jour avec succès",
+        "erreurMismatch": " Les mots de passe ne correspondent pas",
+        "erreurServeur": " Erreur côté serveur",
+        "erreurReseau": " Une erreur réseau est survenue"
     }
 }
