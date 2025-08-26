@@ -22,8 +22,6 @@ const Sidebar = ({ open, setOpen }: { open: boolean; setOpen: (val: boolean) => 
       ]
       : [
         { path: "/dashboard/prospect", label: "Tableau de bord", icon: <Home size={18} /> },
-        { path: "/dashboard/prospect/annonces", label: "Mes annonces", icon: <List size={18} /> },
-        { path: "/dashboard/prospect/annonces/new", label: "Publier une annonce", icon: <FilePlus size={18} /> },
         { path: "/dashboard/prospect/favoris", label: "Mes favoris", icon: <Heart size={18} /> },
         { path: "/dashboard/prospect/messages", label: "Messagerie", icon: <MessageCircleIcon size={18} /> },
         { path: "/dashboard/prospect/rdv", label: "Rendez-vous", icon: <Calendar size={18} /> },

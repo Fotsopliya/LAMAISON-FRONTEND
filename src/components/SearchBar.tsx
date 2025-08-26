@@ -81,7 +81,7 @@ const SearchBar: React.FC = () => {
             <select
               value={filters.projet}
               onChange={(e) => setFilters({ ...filters, projet: e.target.value })}
-              className="p-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+              className="w-full h-12 px-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
             >
               <option value="" disabled>{t('searchbar.projet')}</option>
               {projets.map(opt => (
@@ -95,7 +95,7 @@ const SearchBar: React.FC = () => {
             <select
               value={filters.typeBien}
               onChange={(e) => setFilters({ ...filters, typeBien: e.target.value })}
-              className="p-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+              className="w-full h-12 px-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
             >
               <option value="" disabled>{t('searchbar.typB')}</option>
               {typesBiens.map(opt => (
@@ -109,7 +109,7 @@ const SearchBar: React.FC = () => {
             <select
               value={filters.budget}
               onChange={(e) => setFilters({ ...filters, budget: e.target.value })}
-              className="p-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+              className="w-full h-12 px-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
             >
 
               <option value="" disabled>{t('searchbar.budg')}</option>
@@ -122,17 +122,17 @@ const SearchBar: React.FC = () => {
 
 
             {/* Champ de recherche texte - Conteneur relatif pour positionner l'icône */}
-            <div className="relative col-span-2 md:col-span-1">
+            {/* <div className="relative col-span-2 md:col-span-1">
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder={t('searchbar.plchol')}
                 className="w-full p-3 pl-10 border-0 rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-black"
-              />
+              /> */}
               {/* Icône de loupe positionnée absolument à gauche */}
-              <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black" />
-            </div>
+              {/* <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black" />
+            </div> */}
           </div>
 
           {/* Boutons d'action */}
@@ -140,7 +140,7 @@ const SearchBar: React.FC = () => {
             {/* Bouton Rechercher */}
             <button
               type="submit"
-              className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition flex items-center gap-2"
+              className="h-12  bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition flex items-center gap-2"
             >
               <FaSearch />
               <span className="hidden md:inline">{t('searchbar.rech')}</span>
@@ -150,7 +150,7 @@ const SearchBar: React.FC = () => {
             <button
               type="button"
               onClick={() => setIsFilterOpen(!isFilterOpen)}
-              className="bg-green-600 text-white px-4 py-3 rounded-lg hover:bg-green-700 transition flex items-center gap-2"
+              className="h-12  bg-green-600 text-white px-4 py-3 rounded-lg hover:bg-green-700 transition flex items-center gap-2"
             >
               <FaFilter />
               <span className="hidden md:inline">{t('searchbar.filt')}</span>

@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 
-// type AnnonceFormProps = {
-//   role: "AGENT" | "PROSPECT";
-// };
+
 
 const AnnonceForm: React.FC = () => {
-  const location = useLocation();
-  const role = location.pathname.includes("prospect") ? "PROSPECT" : "AGENT";
+  // const location = useLocation();
+  // const role = location.pathname.includes("prospect") ? "PROSPECT" : "AGENT";
   const [formData, setFormData] = useState({
     titre: "",
     description: "",
@@ -25,17 +23,17 @@ const AnnonceForm: React.FC = () => {
     //  Ici on enverra l'annonce au backend via API
     const annoncePayload = {
       ...formData,
-      auteurType: role === "AGENT" ? "professionnel" : "particulier", // différence clé !
+      auteurType: "AGENT"
     };
 
     console.log("Annonce publiée :", annoncePayload);
-    alert(`Annonce publiée en tant que ${role}`);
+    alert(`Annonce publiée avec succès`);
   };
 
   return (
     <div className="bg-white p-6 shadow-md rounded-lg max-w-xl mx-auto">
       <h1 className="text-2xl font-bold mb-6">
-        Publier une annonce ({role === "AGENT" ? "Pro" : "Particulier"})
+        Publier une annonce (AGENT)
       </h1>
 
       <form onSubmit={handleSubmit} className="space-y-4">
