@@ -47,6 +47,7 @@ const RdvAgent: React.FC = () => {
         <RdvCard
           key={i}
           {...rdv}
+          PROSPECT={rdv.prospect}
           onAction={(action) => handleAction(i, action)}
         />
       ))}

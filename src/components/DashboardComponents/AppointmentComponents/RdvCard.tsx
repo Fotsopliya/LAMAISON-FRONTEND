@@ -17,13 +17,22 @@ const RdvCard: React.FC<RdvCardProps> = ({ date, heure, bien, PROSPECT, AGENT, s
     <div className="bg-white p-4 rounded-2xl shadow-md flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
       <div>
         <h3 className="font-semibold text-lg">{bien}</h3>
-        <p className="text-sm text-gray-600"><Calendar className="text-gray-600 w-6 h-6" />{date} à {heure}</p>
-        {PROSPECT && <p className="text-sm"><FaUser className="text-gray-600 w-6 h-6" />
- Prospect : {PROSPECT}</p>}
-        {AGENT && <p className="text-sm"><Building className="text-indigo-600 w-6 h-6" />
-Agent : {AGENT}</p>}
+        <p className="text-sm text-gray-600 flex items-center gap-1"><Calendar className="text-gray-600 w-4 h-4" />{date} à {heure}
+        </p>
+        {PROSPECT && (
+          <p className="text-sm flex items-center gap-1">
+            <FaUser className="text-gray-600 w-4 h-4" />
+            Prospect : {PROSPECT}
+          </p>
+        )}
+        {AGENT && (
+          <p className="text-sm flex items-center gap-1">
+            <Building className="text-indigo-600 w-4 h-4" />
+            Agent : {AGENT}
+          </p>
+        )}
 
- {/* Badge de statut */}
+        {/* Badge de statut */}
         <span className={`px-3 py-1 text-xs rounded-full mt-1 inline-block
           ${status === "confirmé" ? "bg-green-100 text-green-600" : ""}
           ${status === "refusé" ? "bg-red-100 text-red-600" : ""}
@@ -32,7 +41,7 @@ Agent : {AGENT}</p>}
           {status}
         </span>
       </div>
- {/* Boutons d’action visibles uniquement côté Agent */}
+      {/* Boutons d’action visibles uniquement côté Agent */}
       {onAction && (
         <div className="flex gap-2">
           <button

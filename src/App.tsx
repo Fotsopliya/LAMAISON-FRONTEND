@@ -112,7 +112,6 @@ function LocaleWrapper() {
             <Route index element={<DashboardProspect />} />
             <Route path="home" element={<DashboardProspect />} />
             <Route path="annonces" element={<AnnonceList />} />
-            <Route path="annonces/new" element={<AnnonceForm />} />
             <Route path="profile" element={<Profile />} />
             <Route path="messages" element={<MessagesLayout />} />
             <Route path="messages/:id" element={<MessagesLayout />} />
