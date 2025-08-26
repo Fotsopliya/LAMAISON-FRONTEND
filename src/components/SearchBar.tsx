@@ -7,7 +7,7 @@ const SearchBar: React.FC = () => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   // État pour stocker ce que l'utilisateur tape dans la recherche
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery] = useState('');
 
   // État pour tous nos filtres avec des valeurs par défaut
   const [filters, setFilters] = useState({
