@@ -21,7 +21,7 @@ const SearchBar: React.FC = () => {
       piscine: false,   // Non cochée par défaut
       terrasse: false,  // Non cochée par défaut
       jardin: false,    // Non cochée par défaut
-      cheminée: false, // Non cochée par défaut
+      cheminée: false,  // Non cochée par défaut
       parking: false,
       climatisation: false,
       security: false,
