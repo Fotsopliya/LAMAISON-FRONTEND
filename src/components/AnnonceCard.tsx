@@ -1,5 +1,6 @@
-import React from 'react'
-import { FaMapMarkerAlt, FaBed, FaShower, FaRulerCombined } from 'react-icons/fa'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { FaMapMarkerAlt, FaBed, FaShower, FaRulerCombined, FaHeart, FaRegHeart } from 'react-icons/fa'
 import { Link, useParams } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination } from 'swiper/modules'
@@ -29,6 +30,38 @@ const AnnonceCard: React.FC<Props> = ({
   surface,
 }) => {
   const { lng } = useParams<{ lng: string }>();
+  const [isAuthenticated] = useState(false); // Placeholder, replace with actual auth state
+  const [token] = useState<string | null>(null); // Placeholder, replace with actual token
+   const [liked, setLiked] = useState(false)
+
+const navigate = useNavigate()
+
+const handleLike = async () => {
+  if (!isAuthenticated) {
+    navigate(`/${lng}/signup`) 
+    return
+  }
+
+  try {
+    const response = await fetch('http://localhost:5000/favoris', {
+      method: liked ? 'DELETE' : 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      },
+      body: JSON.stringify({ annonceId: id }),
+    })
+
+    if (response.ok) {
+      setLiked(!liked)
+    } else {
+      console.error('Erreur API:', await response.json())
+    }
+  } catch (error) {
+    console.error('Erreur réseau:', error)
+  }
+}
+
   return (
     <div className="flex flex-col bg-white border border-gray-200 rounded-xl shadow-md overflow-hidden transition duration-300 hover:shadow-xl hover:scale-[1.015] h-full">
 
@@ -41,6 +74,17 @@ const AnnonceCard: React.FC<Props> = ({
           loop
           className="w-full h-full"
         >
+          {/* Bouton favoris en overlay */}
+          <button
+              onClick={handleLike}
+              className={`absolute top-3 right-3 z-10 transition-colors duration-300 ${
+              liked ? 'text-red-600' : 'text-white hover:text-red-500'
+              }`}
+              aria-label="Ajouter aux favoris"
+          >
+               {liked ? <FaHeart size={24} /> : <FaRegHeart size={24} />}
+          </button>
+
           {images.map((img, index) => (
             <SwiperSlide key={index}>
               <img
@@ -68,7 +112,7 @@ const AnnonceCard: React.FC<Props> = ({
             {ville}
           </p>
         </div>
-
+   
         {/* Prix */}
         <p className="text-green-600 font-extrabold text-base sm:text-lg">
           {prix.toLocaleString()} FCFA
