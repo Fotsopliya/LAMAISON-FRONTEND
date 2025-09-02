@@ -32,6 +32,7 @@ import RdvProspect from './components/DashboardComponents/AppointmentComponents/
 import RdvAgent from './components/DashboardComponents/AppointmentComponents/RdvAgent';
 import ForgotPassword from './pages/Auth/ForgotPassword';
 import ResetPassword from './pages/Auth/ResetPassword';
+import Settings from './pages/Dashboard/Settings/settings';
 // import DashboardProfile from '../src/components/DashboardComponents/DashboardProfile';
 
 function LocaleWrapper() {
@@ -105,6 +106,7 @@ function LocaleWrapper() {
             <Route path="messages" element={<MessagesLayout />} />
             <Route path="messages/:id" element={<MessagesLayout />} />
             <Route path="rdv" element={<RdvAgent />} />
+            <Route path="settings" element={<Settings />} />
           </Route>
 
           {/* Prospect */}
@@ -116,6 +118,7 @@ function LocaleWrapper() {
             <Route path="messages" element={<MessagesLayout />} />
             <Route path="messages/:id" element={<MessagesLayout />} />
             <Route path="rdv" element={<RdvProspect />} />
+            <Route path="settings" element={<Settings />} />
           </Route>
 
 
