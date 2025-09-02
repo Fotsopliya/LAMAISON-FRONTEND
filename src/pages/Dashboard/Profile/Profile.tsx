@@ -128,6 +128,7 @@ const Profile = () => {
             onChange={handleChange}
             className="w-full border px-3 py-2 rounded-md"
             required
+            readOnly
           />
         </div>
 
@@ -144,7 +145,7 @@ const Profile = () => {
         </div>
 
         {/* Mot de passe */}
-        <div>
+        {/* <div>
           <label className="block text-gray-700 mb-1">Nouveau mot de passe</label>
           <input
             type="password"
@@ -153,7 +154,7 @@ const Profile = () => {
             onChange={handleChange}
             className="w-full border px-3 py-2 rounded-md"
           />
-        </div>
+        </div> */}
 
         {/* Bouton */}
         <div className="flex justify-end">

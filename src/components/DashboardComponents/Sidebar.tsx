@@ -18,7 +18,7 @@ const Sidebar = ({ open, setOpen }: { open: boolean; setOpen: (val: boolean) => 
         { path: "/dashboard/agent/messages", label: "Messagerie", icon: <MessageCircleIcon size={18} /> },
         { path: "/dashboard/agent/rdv", label: "Rendez-vous", icon: <Calendar size={18} /> },
         { path: "/dashboard/agent/profile", label: "Profil", icon: <User size={18} /> },
-        { path: "dashboard/agent/settings", label: "Paramètres", icon: <Settings size={18} /> }
+        { path: "/dashboard/agent/settings", label: "Paramètres", icon: <Settings size={18} /> }
       ]
       : [
         { path: "/dashboard/prospect", label: "Tableau de bord", icon: <Home size={18} /> },
@@ -26,7 +26,7 @@ const Sidebar = ({ open, setOpen }: { open: boolean; setOpen: (val: boolean) => 
         { path: "/dashboard/prospect/messages", label: "Messagerie", icon: <MessageCircleIcon size={18} /> },
         { path: "/dashboard/prospect/rdv", label: "Rendez-vous", icon: <Calendar size={18} /> },
         { path: "/dashboard/prospect/profile", label: "Profil", icon: <User size={18} /> },
-        { path: "dashboard/prospect/settings", label: "Paramètres", icon: <Settings size={18} /> }
+        { path: "/dashboard/prospect/settings", label: "Paramètres", icon: <Settings size={18} /> }
       ];
 
   return (
