@@ -87,9 +87,9 @@ function LocaleWrapper() {
           <Route path="/cgu" element={<CGU />} />
           <Route path="/legal-notice" element={<MentionsLegales />} />
           <Route path="/confidentiality" element={<Confidentialite />} />
-        </Route>
-         <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password/:token" element={<ResetPassword />} />
+        </Route>
       </Routes>
 
 
@@ -120,9 +120,6 @@ function LocaleWrapper() {
             <Route path="rdv" element={<RdvProspect />} />
             <Route path="settings" element={<Settings />} />
           </Route>
-
-
-
         </Route>
       </Routes>
     </>
