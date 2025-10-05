@@ -1,9 +1,10 @@
 import { useFormik } from "formik";
 import { t } from "i18next";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import * as yup from "yup";
 import { useSignUp } from "@clerk/clerk-react";
 import { useState } from "react";
+import VerificationCode from "./VerificationCode";
 
 const schemaSignUp = yup.object().shape({
   firstname: yup.string().min(2, "Prénom trop court").required("Prénom requis"),
@@ -14,10 +15,10 @@ const schemaSignUp = yup.object().shape({
 
 const Inscription = () => {
   const { lng } = useParams<{ lng: string }>();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const { signUp, setActive: setActiveSignUp } = useSignUp();
   const [verifying, setVerifying] = useState(false);
-  const [codeVerification, setCodeVerification] = useState("");
+  // const [codeVerification, _setCodeVerification] = useState("");
 
   // Initial values
   const initialValues = {
@@ -96,23 +97,27 @@ const Inscription = () => {
     }
   };
 
-  const handleVerification = async () => {
-    try{
-      if(!signUp) return undefined;
-      const completeAuth = await signUp.attemptVerification({
-        strategy: 'email_code', 
-        code: codeVerification,
-      })
-      if (completeAuth.status === 'complete') {
-        await setActiveSignUp({ session: completeAuth.createdSessionId });
-        console.log("✅ Inscription Clerk réussie :", completeAuth);
-        navigate(`/${lng}/dashboard`);
-      }
-    } catch (error: any) {
-      console.error("❌ Erreur Clerk", error.errors || error.message);
-    }
-  }
-
+  // const handleVerification = async () => {
+  //   try{
+  //     if(!signUp) return undefined;
+  //     const completeAuth = await signUp.attemptVerification({
+  //       strategy: 'email_code', 
+  //       code: codeVerification,
+  //     })
+  //     if (completeAuth.status === 'complete') {
+  //       await setActiveSignUp({ session: completeAuth.createdSessionId });
+  //       console.log("✅ Inscription Clerk réussie :", completeAuth);
+  //       navigate(`/${lng}/dashboard`);
+  //     }
+  //   } catch (error: any) {
+  //     console.error("❌ Erreur Clerk", error.errors || error.message);
+  //   }
+  // }
+if (verifying) {
+  return (
+    <VerificationCode />
+  )
+}
   return (
     <div className="mt-24 px-4 max-w-lg mx-auto">
       <h2 className="text-3xl font-bold text-center mb-8 text-green-600">

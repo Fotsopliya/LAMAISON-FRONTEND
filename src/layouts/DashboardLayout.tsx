@@ -2,7 +2,7 @@ import { Navigate, Outlet, useParams } from "react-router-dom";
 import Sidebar from "../components/DashboardComponents/Sidebar";
 import Header from "../components/DashboardComponents/Header";
 import { useState } from "react";
-import { useAuth, useUser } from "@clerk/clerk-react";
+import {useUser } from "@clerk/clerk-react";
 
 
 const DashboardLayout = () => {

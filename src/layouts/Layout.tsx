@@ -1,7 +1,7 @@
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-import  {Navigate, Outlet, useParams}  from 'react-router-dom'
-import { useAuth, useUser } from '@clerk/clerk-react';
+import  { Outlet}  from 'react-router-dom'
+import { useUser } from '@clerk/clerk-react';
 
 // Déclare le type des propriétés (props) attendues par Layout
 // Ici, 'children' est le contenu dynamique qu'on va afficher entre Navbar et Footer
