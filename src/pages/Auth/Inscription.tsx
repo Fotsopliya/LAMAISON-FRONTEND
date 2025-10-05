@@ -69,7 +69,7 @@ const Inscription = () => {
   //   }
   // }
   const handleSignUp = async (values: typeof initialValues) => {
-    let setSubmitting = formik.setSubmitting;
+    const setSubmitting = formik.setSubmitting;
     if (!signUp || !setActiveSignUp) {
       throw new Error('Issue while signing up');
     }
@@ -111,6 +111,47 @@ const Inscription = () => {
     } catch (error: any) {
       console.error("❌ Erreur Clerk", error.errors || error.message);
     }
+  }
+
+  if (verifying) {
+    return (
+      <div className="mt-24 px-4 max-w-lg mx-auto">
+        <h2 className="text-3xl font-bold text-center mb-8 text-green-600">
+          {t("inscription.verifEmail")}
+        </h2>
+
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleVerification();
+          }}
+          className="bg-white shadow-lg rounded-2xl px-8 py-10 space-y-6"
+        >
+          {/* Code de vérification */}
+          <div>
+            <label htmlFor="code" className="block text-sm font-medium text-gray-700 mb-1">
+              {t("inscription.codeEnvoye")}
+            </label>
+            <input
+              type="text"
+              name="code"
+              value={codeVerification}
+              onChange={(e) => setCodeVerification(e.target.value)}
+              placeholder={t("inscription.entrCode")}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+            />
+          </div>
+
+          {/* Bouton */}
+          <button
+            type="submit"
+            className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg transition"
+          >
+            {t("inscription.verifier")}
+          </button>
+        </form>
+      </div>
+    );
   }
 
   return (
