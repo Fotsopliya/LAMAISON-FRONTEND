@@ -33,6 +33,7 @@ import RdvAgent from './components/DashboardComponents/AppointmentComponents/Rdv
 import ForgotPassword from './pages/Auth/ForgotPassword';
 import ResetPassword from './pages/Auth/ResetPassword';
 import Settings from './pages/Dashboard/Settings/settings';
+import VerificationCode from './pages/Auth/VerificationCode';
 // import DashboardProfile from '../src/components/DashboardComponents/DashboardProfile';
 
 function LocaleWrapper() {
@@ -89,6 +90,7 @@ function LocaleWrapper() {
           <Route path="/confidentiality" element={<Confidentialite />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password/:token" element={<ResetPassword />} />
+          <Route path="/:lng/verify-email" element={<VerificationCode />} />
         </Route>
       </Routes>
 
